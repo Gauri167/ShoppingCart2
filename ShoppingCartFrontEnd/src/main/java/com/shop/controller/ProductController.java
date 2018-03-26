@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shop.dao.CategoryDAO;
 import com.shop.dao.ProductDAO;
+import com.shop.dao.SupplierDAO;
 import com.shop.domain.Product;
 
 @Controller
@@ -22,6 +24,12 @@ public class ProductController {
 	
 	@Autowired
 	private ProductDAO productDAO;
+	
+	@Autowired
+	private CategoryDAO categoryDAO;
+
+	@Autowired
+	private SupplierDAO supplierDAO;
 	
 	@Autowired
 	HttpSession httpSession;
@@ -37,13 +45,17 @@ public class ProductController {
 	
 	@PostMapping("/product/save/")
 	public ModelAndView saveProduct(@RequestParam String id,@RequestParam String name,@RequestParam String description,
-			                         @RequestParam String categoryId,@RequestParam String supplierId)
+			                         @RequestParam("categoryId") String categoryId,@RequestParam("supplierId") String supplierId,@RequestParam("price") String price)
 	{
 		product.setId(id);
 		product.setName(name);
 		product.setDescription(description);
 		product.setCategoryId(categoryId);
+		product.setCategory(categoryDAO.get(categoryId));
 		product.setSupplierId(supplierId);
+		product.setSupplier(supplierDAO.get(supplierId));
+		price=price.replace(",","");
+		product.setPrice(Integer.parseInt(price));
 		ModelAndView mv=new ModelAndView("redirect:/manage_product");
 		if(productDAO.save(product)==true)
 		{

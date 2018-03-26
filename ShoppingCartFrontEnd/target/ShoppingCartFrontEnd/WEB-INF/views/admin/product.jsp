@@ -1,48 +1,102 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 this is product page
-${productSuccessMessage}
-${productErrorMessage}
-${products}
+ ${productSuccessMessage} 
+ ${productErrorMessage}
 
 <form action="product/save/" method="post">
-<table>
-<tr>
-<td> Id:</td>
-<td><input type="text" name='id'> </td>
-</tr>
+	<table>
+		<tr>
+			<td>Id:</td>
+			<!-- write it in if condition -->
 
-<tr>
-<td>Name:</td>
-<td> <input type="text" name='name'> </td>
-</tr>
+			<td><input type="text" name="id" value="${selectedProduct.id}"
+				<c:if test="${editProduct==true}"> disabled</c:if>></td>
+		</tr>
 
-<tr>
-<td> Description:</td>
-<td> <input type="text" name='description'> </td>
-</tr>
+		<tr>
+			<td>Name:</td>
+			<td><input type="text" name="name"
+				value="${selectedProduct.name}"></td>
+		</tr>
 
-<tr>
-<td> Category:</td>
-<td> <input type="text" name='category'></td> 
-</tr>
+		<tr>
+			<td>Description:</td>
+			<td><input type="text" name="description"
+				value="${selectedProduct.description}"></td>
+		</tr>
+		
+		<tr>
+			<td>Price:</td>
+			<td><input type="text" name='price'
+				value="${selectedProduct.price}">  </td>
+		</tr>
 
-<tr>
-<td>Supplier:</td>
-<td> <input type="text" name='supplier'> </td>
-</tr>
+        <tr>
+			<td>Category</td>
+			<td>
+			<select name="categoryId">
+			
+			<c:forEach var="category" items="categories">
+			<option value="${category.id}">${category.name}</option>
+			</c:forEach>
+			
+			</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Supplier</td>
+			<td>
+			<select name="supplierId">
+			
+			<c:forEach var="supplier" items="suppliers">
+			<option value="${supplier.id}">${supplier.name}</option>
+			</c:forEach>
+			
+			</select>
+			</td>
+		</tr>
+		
+	</table>
 
-</table>
-
-<input type="submit" value='Create Product'>
+	<input type="submit" value='Create Product'>
 </form>
 
-</body>
-</html>
+<!-- display all the products -->
+
+<div>
+	<table border="5" bgcolor="cyan">
+
+		<tr>
+
+			<td>Product Id</td>
+			<td>Product Name</td>
+			<td>Product Description</td>
+			<td>Category Id</td>
+			<td>Supplier Id </td>
+			<td>Price</td>
+			<td>Action</td>
+
+		</tr>
+
+		<c:forEach var="product" items="${products}">
+
+			<tr>
+
+				<td>${product.id}</td>
+				<td>${product.name}</td>
+				<td>${product.description}</td>
+				<td>${product.categoryId}</td>
+				<td>${product.supplierId}</td>
+				<td>${product.price}</td>
+				<td><a href="product/delete/?id=${product.id}"> DELETE /</a> <a href="product/edit/?id=${product.id}"> EDIT</a> </td>
+				
+			</tr>
+
+		</c:forEach>
+
+	</table>
+</div>
+
+

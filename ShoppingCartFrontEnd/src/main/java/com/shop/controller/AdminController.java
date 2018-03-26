@@ -58,7 +58,13 @@ public class AdminController {
 		ModelAndView mv=new ModelAndView("home");
 		mv.addObject("isAdminClickedManageProducts",true);
 		List<Product> products=productDAO.productlist();
+		List<Category> categories=categoryDAO.categorylist();
+		List<Supplier> suppliers=supplierDAO.supplierlist();
 		httpSession.setAttribute("products", products);
+		httpSession.setAttribute("categories",categories);
+		httpSession.setAttribute("suppliers",suppliers);
+		//we are supposed tonfetch all the categories and suppliers and add it to manage products
+		
 		return mv;
 	}
 }

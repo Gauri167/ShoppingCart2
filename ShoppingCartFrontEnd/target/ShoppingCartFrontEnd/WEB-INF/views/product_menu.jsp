@@ -5,14 +5,18 @@
 
      <j:forEach var="category" items="${categories}">
      <li class="dropdown">
-     <a href="javascript:void(0)" class="dropbtn">${category.name}</a>
-     </li>
+     <a href="<j:url value="products/${category.id}"/>" class="dropbtn">${category.name}</a>
+          
      <j:forEach var="product" items="${category.products}"> 
      <div class="dropdown-content">
-     <a href=#>${product.name}</a>
+     <a href="#">${product.name}</a>
      </div> 
      </j:forEach>
+     </li>
      </j:forEach>
+     
+     </ul>
+ 
  
   <!-- <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Electronics</a>

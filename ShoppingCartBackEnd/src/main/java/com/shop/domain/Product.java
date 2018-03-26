@@ -24,6 +24,8 @@ public class Product {
 	private String categoryId;
 	@Column(name="SupplierId")
 	private String supplierId;
+	@Column(name="Price")
+	private int price;
 	
 	@ManyToOne
 	@JoinColumn(name="CategoryId",updatable=false,insertable=false,nullable=false)
@@ -75,6 +77,12 @@ public class Product {
 	}
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }

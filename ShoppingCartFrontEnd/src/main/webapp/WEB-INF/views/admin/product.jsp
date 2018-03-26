@@ -25,19 +25,47 @@ this is product page
 			<td><input type="text" name="description"
 				value="${selectedProduct.description}"></td>
 		</tr>
-
+		
 		<tr>
-			<td>Category Id:</td>
-			<td><input type="text" name='categoryId'
-				value="${selectedProduct.categoryId}" <c:if test="${editProduct==true}"> disabled</c:if> required>  </td>
+			<td>Price:</td>
+			<td><input type="text" name='price'
+				value="${selectedProduct.price}">  </td>
 		</tr>
 
-		<tr>
-			<td>Supplier Id:</td>
-			<td><input type="text" name='supplierId'
-				value="${selectedProduct.supplierId}" <c:if test="${editProduct==true}"> disabled</c:if> required>  </td>
+        <tr>
+			<td>Category</td>
+			<td>
+			
+			<input type="text" name='categoryId'
+				value="${selectedProduct.categoryId}">
+			
+			<%-- <select name="categoryId">
+			
+			<c:forEach var="category" items="categories">
+			<option value="${category.id}">${category.name}</option>
+			</c:forEach>
+			
+			</select> --%>
+			</td>
 		</tr>
-
+		
+		<tr>
+			<td>Supplier</td>
+			<td>
+			
+			<input type="text" name='supplierId'
+				value="${selectedProduct.supplierId}">
+			
+			<%-- <select name="supplierId">
+			
+			<c:forEach var="supplier" items="suppliers">
+			<option value="${supplier.id}">${supplier.name}</option>
+			</c:forEach>
+			
+			</select> --%>
+			</td>
+		</tr>
+		
 	</table>
 
 	<input type="submit" value='Create Product'>
@@ -55,6 +83,7 @@ this is product page
 			<td>Product Description</td>
 			<td>Category Id</td>
 			<td>Supplier Id </td>
+			<td>Price</td>
 			<td>Action</td>
 
 		</tr>
@@ -68,6 +97,7 @@ this is product page
 				<td>${product.description}</td>
 				<td>${product.categoryId}</td>
 				<td>${product.supplierId}</td>
+				<td>${product.price}</td>
 				<td><a href="product/delete/?id=${product.id}"> DELETE /</a> <a href="product/edit/?id=${product.id}"> EDIT</a> </td>
 				
 			</tr>
