@@ -24,20 +24,7 @@ public class ProductDAOImpl implements ProductDAO{
 	private Product product;
 	public boolean save(Product product) {
 		try {
-			sessionFactory.getCurrentSession().save(product);
-			return true;
-		} 
-		catch (HibernateException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	public boolean update(Product product) {
-		try {
-			if(product.getId()==null)
-				{return false;}
-			sessionFactory.getCurrentSession().update(product);
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
 			return true;
 		} 
 		catch (HibernateException e) {

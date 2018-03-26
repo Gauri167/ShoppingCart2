@@ -24,20 +24,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	public boolean save(Category category) {
 		try {
-			sessionFactory.getCurrentSession().save(category);
-			return true;
-		} 
-		catch (HibernateException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	public boolean update(Category category) {
-		try {
-			if(category.getId()==null)
-				{return false;}
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
 			return true;
 		} 
 		catch (HibernateException e) {

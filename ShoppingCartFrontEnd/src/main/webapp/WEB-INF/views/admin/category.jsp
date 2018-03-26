@@ -2,11 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 this is category page
 <!-- create 3 text fields  -->
-${categorySuccessMessage} ${categoryErrorMessage}
+${categorySuccessMessage} 
+${categoryErrorMessage}
 <%-- <form:form modelAttribute="category" action="saveCategory" method="post">
-<form:input path="id" palaceholder="Id"/>
-<form:input path="name" palaceholder="Name"/>
-<form:input path="description" palaceholder="Description"/>
+<form:input path="id" placeholder="Id"/>
+<form:input path="name" placeholder="Name"/>
+<form:input path="description" placeholder="Description"/>
 <input type="submit" value="Save Category"/>
 </form:form> --%>
 
@@ -14,17 +15,19 @@ ${categorySuccessMessage} ${categoryErrorMessage}
 	<table>
 		<tr>
 			<td>Id:</td>
-			<td><input type="text" name="id"></td>
+			<!-- write it in if condition -->
+			
+			<td><input type="text" name="id" value="${selectedCategory.id}" <c:if test="${editCategories==true}"> disabled</c:if>></td>
 		</tr>
 
 		<tr>
 			<td>Name:</td>
-			<td><input type="text" name="name"></td>
+			<td><input type="text" name="name" value="${selectedCategory.name}"></td>
 		</tr>
 
 		<tr>
 			<td>Description:</td>
-			<td><input type="text" name="description"></td>
+			<td><input type="text" name="description" value="${selectedCategory.description}"></td>
 		</tr>
 
 	</table>
@@ -53,8 +56,7 @@ ${categorySuccessMessage} ${categoryErrorMessage}
 				<td>${category.id}</td>
 				<td>${category.name}</td>
 				<td>${category.description}</td>
-				<td><a href="category/delete/?id=${category.id}"> DELETE /</a> 
-				    <a href="category/update/"> EDIT</a> </td>
+				<td><a href="category/delete/?id=${category.id}"> DELETE /</a> <a href="category/edit/?id=${category.id}"> EDIT</a> </td>
 				
 			</tr>
 

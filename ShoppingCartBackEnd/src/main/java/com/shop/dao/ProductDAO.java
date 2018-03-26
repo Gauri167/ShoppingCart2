@@ -10,8 +10,6 @@ public interface ProductDAO {
 
 	// to save a new product
 	public boolean save(Product product);
-	//to update a product
-	public boolean update(Product product);
 	// to delete a product
 	public boolean delete(String id);
 	// to get a product

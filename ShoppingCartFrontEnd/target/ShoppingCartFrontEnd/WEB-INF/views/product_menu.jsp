@@ -7,11 +7,11 @@
      <li class="dropdown">
      <a href="javascript:void(0)" class="dropbtn">${category.name}</a>
      </li>
-     <%-- <j:forEach var="product" items="${products}"> 
+     <j:forEach var="product" items="${category.products}"> 
      <div class="dropdown-content">
      <a href=#>${product.name}</a>
      </div> 
-     </j:forEach> --%>
+     </j:forEach>
      </j:forEach>
  
   <!-- <li class="dropdown">

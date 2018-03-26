@@ -9,7 +9,10 @@
 <body>
 This is supplier Page
 
-<form action="save" method="post">
+${supplierSuccessMessage}
+${supplierErrorMessage}
+${suppliers}
+<form action="supplier/save/" method="post">
 <table>
 <tr>
 <td> Id:</td>

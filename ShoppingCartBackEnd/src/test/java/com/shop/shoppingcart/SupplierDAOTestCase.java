@@ -40,16 +40,7 @@ public class SupplierDAOTestCase {
 		boolean status=supplierDAO.save(supplier);
 		assertTrue("saveSupplierTestCase",status);
 	}
-	@Ignore
-	@Test
-	public  void updateSupplierTestCase() {
-		
-		supplier.setId("SUP-001");
-		supplier.setName("BigD");
-		
-		boolean status=supplierDAO.update(supplier);
-		assertEquals("updateSupplierTestCase",true,status);
-	}
+	
 	@Ignore
 	@Test
 	public void deleteSupplierSuccessTestCase() {

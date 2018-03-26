@@ -6,11 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,22 +26,25 @@ public class ProductController {
 	@Autowired
 	HttpSession httpSession;
 	
-	@GetMapping("/product/get/{id}")
-	public ModelAndView getProduct(@RequestParam("id") String id)
+	@GetMapping("/product/get/")
+	public ModelAndView getProduct(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_product");
 		product=productDAO.get(id);
 		mv.addObject("product",product);
 		return mv;
 	}
 	
 	@PostMapping("/product/save/")
-	public ModelAndView saveProduct(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description)
+	public ModelAndView saveProduct(@RequestParam String id,@RequestParam String name,@RequestParam String description,
+			                         @RequestParam String categoryId,@RequestParam String supplierId)
 	{
 		product.setId(id);
 		product.setName(name);
 		product.setDescription(description);
-		ModelAndView mv=new ModelAndView("home");
+		product.setCategoryId(categoryId);
+		product.setSupplierId(supplierId);
+		ModelAndView mv=new ModelAndView("redirect:/manage_product");
 		if(productDAO.save(product)==true)
 		{
 			mv.addObject("productSuccessMessage","Product saved");
@@ -55,32 +55,32 @@ public class ProductController {
 		return mv;
 	}
 	
-	@PutMapping("/product/update/")
-	public ModelAndView updateProduct(@RequestBody Product product)
+	@GetMapping("/product/edit/")
+	public ModelAndView editProduct(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
-		if(productDAO.update(product)==true)
-			mv.addObject("productSuccessMessage","Product Updated");
-		else mv.addObject("productErrorMessage","Could not update Product try again");
+		ModelAndView mv= new ModelAndView("redirect:/manage_product");
+		product=productDAO.get(id);
+		//mv.addObject("editProduct",true);
+		httpSession.setAttribute("selectedProduct",product);
 		return mv;
 	}
 	
-	@DeleteMapping("/product/delete/{id}")
-	public ModelAndView deleteProduct(@RequestParam("id") String id)
+	@GetMapping("/product/delete/")
+	public ModelAndView deleteProduct(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_product");
 		if(productDAO.delete(id)==true)
 			mv.addObject("productSuccessMessage","Product deleted");
 		else mv.addObject("productErrorMessage","Could not delete product try again");
 		return mv;
 	}
 	
-	/*@GetMapping("/categories")
+	@GetMapping("/products")
 	public ModelAndView getAllCategories()
 	{
-		ModelAndView mv= new ModelAndView("home");
+		ModelAndView mv= new ModelAndView("redirect:/manage_product");
 		List<Product> products=productDAO.productlist();
 		mv.addObject("products",products);
 		return mv;
-	}*/
+	}
 }

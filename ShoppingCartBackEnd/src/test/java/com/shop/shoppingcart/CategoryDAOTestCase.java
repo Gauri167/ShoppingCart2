@@ -39,14 +39,7 @@ public class CategoryDAOTestCase {
 		boolean status=categoryDAO.save(category);
 		assertTrue("saveCategoryTestCase",status);
 	}
-	@Ignore
-	@Test
-	public void updateCategoryTestCase() {
-		category.setId("Mob-001");
-		category.setName("SmartPhones");
-		boolean status=categoryDAO.update(category);
-		assertEquals("updateCategoryTestCase",true,status);
-	}
+	
 	@Ignore
 	@Test
 	public void deleteCategorySuccessTestCase() {

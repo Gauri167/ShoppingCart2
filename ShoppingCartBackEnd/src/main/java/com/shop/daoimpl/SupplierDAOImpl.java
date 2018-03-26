@@ -23,20 +23,7 @@ public class SupplierDAOImpl implements SupplierDAO{
 	private Supplier supplier;
 	public boolean save(Supplier supplier) {
 		try {
-			sessionFactory.getCurrentSession().save(supplier);
-			return true;
-		} 
-		catch (HibernateException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	public boolean update(Supplier supplier) {
-		try {
-			if(supplier.getId()==null)
-				{return false;}
-			sessionFactory.getCurrentSession().update(supplier);
+			sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 			return true;
 		} 
 		catch (HibernateException e) {

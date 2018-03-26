@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+${categorySuccessMessage} 
+${categoryErrorMessage}
+
 <h2>
 <a href="manage_category">Manage Categories</a>
 <a href="manage_supplier"> Manage Suppliers</a>

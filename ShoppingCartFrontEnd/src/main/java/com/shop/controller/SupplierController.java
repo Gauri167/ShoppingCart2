@@ -6,11 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,22 +26,22 @@ public class SupplierController {
 	@Autowired
 	HttpSession httpSession;
 	
-	@GetMapping("/supplier/get/{id}")
-	public ModelAndView getSupplier(@RequestParam("id") String id)
+	@GetMapping("/supplier/get/")
+	public ModelAndView getSupplier(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_supplier");
 		supplier=supplierDAO.get(id);
 		mv.addObject("supplier",supplier);
 		return mv;
 	}
 	
 	@PostMapping("/supplier/save/")
-	public ModelAndView saveSupplier(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("address") String address)
+	public ModelAndView saveSupplier(@RequestParam String id,@RequestParam String name,@RequestParam String address)
 	{
 		supplier.setId(id);
 		supplier.setName(name);
 		supplier.setAddress(address);
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_supplier");
 		if(supplierDAO.save(supplier)==true)
 		{
 			mv.addObject("supplierSuccessMessage","Supplier Save");
@@ -54,33 +51,32 @@ public class SupplierController {
 		else mv.addObject("supplierErrorMessage","CCould not save Supplier try again");
 		return mv;
 	}
-	
-	@PutMapping("/supplier/update/")
-	public ModelAndView updateSupplier(@RequestBody Supplier supplier)
+	@GetMapping("/supplier/edit/")
+	public ModelAndView editSupplier(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
-		if(supplierDAO.update(supplier)==true)
-			mv.addObject("supplierSuccessMessage","Supplier Updated");
-		else mv.addObject("supplierErrorMessage","Could not update Supplier try again");
+		ModelAndView mv=new ModelAndView("redirect:/manage_supplier");
+		supplier=supplierDAO.get(id);
+		mv.addObject("editSupplier",true);
+		httpSession.setAttribute("selectedSupplier",supplier);
 		return mv;
 	}
 	
-	@DeleteMapping("/supplier/delete/{id}")
-	public ModelAndView deleteSupplier(@RequestParam("id") String id)
+	@GetMapping("/supplier/delete/")
+	public ModelAndView deleteSupplier(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_supplier");
 		if(supplierDAO.delete(id)==true)
 			mv.addObject("supplierSuccessMessage","Supplier deleted");
 		else mv.addObject("supplierErrorMessage","Could not delete Supplier try again");
 		return mv;
 	}
 	
-	/*@GetMapping("/categories")
+	@GetMapping("/suppliers")
 	public ModelAndView getAllCategories()
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_supplier");
 		List<Supplier> suppliers=supplierDAO.supplierlist();
 		mv.addObject("suppliers",suppliers);
 		return mv;
-	}*/
+	}
 }

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,8 +26,8 @@ public class CategoryController {
 	@Autowired
 	HttpSession httpSession;
 	
-	@GetMapping("/category/get/{id}")
-	public ModelAndView getCategory(@RequestParam("id") String id)
+	@GetMapping("/category/get/")
+	public ModelAndView getCategory(@RequestParam String id)
 	{
 		ModelAndView mv=new ModelAndView("home");
 		category=categoryDAO.get(id);
@@ -38,12 +36,12 @@ public class CategoryController {
 	}
 	
 	@PostMapping("/category/save/")
-	public ModelAndView saveCategory(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description)
+	public ModelAndView saveCategory(@RequestParam String id,@RequestParam String name,@RequestParam String description)
 	{
 		category.setId(id);
 		category.setName(name);
 		category.setDescription(description);
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_category");
 		if(categoryDAO.save(category)==true)
 			{
 			mv.addObject("categorySuccessMessage","Category saved");
@@ -55,20 +53,24 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@PostMapping("/category/update/")
-	public ModelAndView updateCategory(@RequestBody Category Category)
+	@GetMapping("/category/edit/")
+	public ModelAndView editCategory(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("home");
-		if(categoryDAO.update(category)==true)
+		ModelAndView mv=new ModelAndView("redirect:/manage_category");
+		//based on category id fetch category details.
+		category=categoryDAO.get(id);
+		mv.addObject("editCategories",true);
+		httpSession.setAttribute("selectedCategory",category);
+		/*if(categoryDAO.update(category)==true)
 			mv.addObject("categorySuccessMessage","Category Update");
-		else mv.addObject("categoryErrorMessage","Could not update Category try again");
+		else mv.addObject("categoryErrorMessage","Could not update Category try again");*/
 		return mv;
 	}
 	
-	@RequestMapping(name="/category/delete/{id}")
-	public ModelAndView deleteCategory(@RequestParam("id") String id)
+	@GetMapping(name="/category/delete/")
+	public ModelAndView deleteCategory(@RequestParam String id)
 	{ 
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/manage_category");
 		if(categoryDAO.delete(id)==true)
 			mv.addObject("categorySuccessMessage","Category Deleted");
 		else mv.addObject("categoryErrorMessage","Could not delete Category try again");

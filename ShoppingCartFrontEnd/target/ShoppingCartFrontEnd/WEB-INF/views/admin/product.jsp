@@ -8,8 +8,11 @@
 </head>
 <body>
 this is product page
+${productSuccessMessage}
+${productErrorMessage}
+${products}
 
-<form action="save" method="post">
+<form action="product/save/" method="post">
 <table>
 <tr>
 <td> Id:</td>
@@ -38,7 +41,7 @@ this is product page
 
 </table>
 
-<input type="submit" value='Create Supplier'>
+<input type="submit" value='Create Product'>
 </form>
 
 </body>

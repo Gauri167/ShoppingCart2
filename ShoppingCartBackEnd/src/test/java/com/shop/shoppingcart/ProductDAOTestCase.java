@@ -48,14 +48,6 @@ public class ProductDAOTestCase {
 	}
 	@Ignore
 	@Test
-	public void updateProductTestCase() {
-		product.setId("Lenovo-001");
-		product.setName("Lenovo A1");
-		boolean status=productDAO.update(product);
-		assertEquals("updateProductTestCase",true,status);
-	}
-	@Ignore
-	@Test
 	public void deleteProductSuccessTestCase() {
 		
 		boolean status=productDAO.delete("Opp-004");
