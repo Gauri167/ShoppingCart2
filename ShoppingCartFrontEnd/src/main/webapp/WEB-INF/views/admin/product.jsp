@@ -3,8 +3,9 @@
 this is product page
  ${productSuccessMessage} 
  ${productErrorMessage}
+ ${uploadMessage}
 
-<form action="product/save/" method="post">
+<form action="product/save/" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>Id:</td>
@@ -39,7 +40,7 @@ this is product page
 			<input type="text" name='categoryId'
 				value="${selectedProduct.categoryId}">
 			
-			<%-- <select name="categoryId">
+			<%--  <select name="categoryId">
 			
 			<c:forEach var="category" items="categories">
 			<option value="${category.id}">${category.name}</option>
@@ -66,6 +67,12 @@ this is product page
 			</td>
 		</tr>
 		
+		<tr>
+		<td>
+		Product Image:<input type="file" name="file">
+		</td>
+		</tr>
+		
 	</table>
 
 	<input type="submit" value='Create Product'>
@@ -74,7 +81,7 @@ this is product page
 <!-- display all the products -->
 
 <div>
-	<table border="5" bgcolor="cyan">
+	<table border="5px" bgcolor="cyan">
 
 		<tr>
 
@@ -108,3 +115,4 @@ this is product page
 </div>
 
 
+		

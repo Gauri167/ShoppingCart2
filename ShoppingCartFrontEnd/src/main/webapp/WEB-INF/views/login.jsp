@@ -3,7 +3,8 @@
 
 <form action="validate" method="post">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+    <img src="/resources/images/avatar1.PNG" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">

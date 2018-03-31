@@ -136,12 +136,14 @@ span.psw {
 
 <a href="login" >Login</a>
 <a href="signUp">Sign-Up</a>
+<a href="logout">Logout</a>
 
 <jsp:include page="product_menu.jsp"></jsp:include>
 
 ${welcomeMessage}
 ${errorMessage}
 ${successMessage}
+${logoutMessage}
 
 <c:if test="${UserClickedLogin==true}">
 <jsp:include page="login.jsp"></jsp:include>

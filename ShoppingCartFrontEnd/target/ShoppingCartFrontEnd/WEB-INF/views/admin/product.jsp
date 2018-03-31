@@ -35,26 +35,34 @@ this is product page
         <tr>
 			<td>Category</td>
 			<td>
-			<select name="categoryId">
+			
+			<input type="text" name='categoryId'
+				value="${selectedProduct.categoryId}">
+			
+			<%-- <select name="categoryId">
 			
 			<c:forEach var="category" items="categories">
 			<option value="${category.id}">${category.name}</option>
 			</c:forEach>
 			
-			</select>
+			</select> --%>
 			</td>
 		</tr>
 		
 		<tr>
 			<td>Supplier</td>
 			<td>
-			<select name="supplierId">
+			
+			<input type="text" name='supplierId'
+				value="${selectedProduct.supplierId}">
+			
+			<%-- <select name="supplierId">
 			
 			<c:forEach var="supplier" items="suppliers">
 			<option value="${supplier.id}">${supplier.name}</option>
 			</c:forEach>
 			
-			</select>
+			</select> --%>
 			</td>
 		</tr>
 		

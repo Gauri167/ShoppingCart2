@@ -2,6 +2,8 @@ package com.shop.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,9 @@ import com.shop.domain.User;
 @Controller
 public class UserController {
 	
+	   private static final Logger log=LoggerFactory.getLogger(UserController.class);
+
+	
        @Autowired
        private User user;
        
@@ -24,17 +29,20 @@ public class UserController {
       HttpSession httpSession;
        
        @PostMapping("/validate")
-       public ModelAndView validate(@RequestParam("uname") String emailId,@RequestParam("pswd") String password) {
-    	   
+       public ModelAndView validate(@RequestParam("uname") String emailId,@RequestParam("pswd") String password) 
+       {
+    	   log.debug("Starting of validate Method");
     	   ModelAndView mv=new ModelAndView("home");
     	   user=userDAO.validate(emailId, password);
     	   if(user==null)
     		   mv.addObject("errorMessage","Invalid Id or Password");
     	   else {
     		   httpSession.setAttribute("welcomeMessage","Welcome "+user.getName());
+    		   httpSession.setAttribute("loggedInUserId",user.getEmailId());
     		   if(user.getRole()=='A')
     			   httpSession.setAttribute("isAdmin",true);
     	   }
+    	   log.debug("ending of validate Method");
     	   return mv;
        }
        
@@ -42,6 +50,7 @@ public class UserController {
        public ModelAndView saveUser(@RequestParam("email") String emailId,@RequestParam("pswd") String password,@RequestParam("rpswd") String rpassword,
     		                        @RequestParam("name") String name,@RequestParam("mobile")String mobile)
        {
+    	   log.debug("Starting of saveUser Method");
     	   ModelAndView mv=new ModelAndView("home");
     	   if(rpassword.equals(password))
     	   {
@@ -56,6 +65,7 @@ public class UserController {
     	   }
     	   
     	   else mv.addObject("errorMessage","Password Mismatch");
+    	   log.debug("ending of saveUser Method");
     	   return mv;
        }
 }
