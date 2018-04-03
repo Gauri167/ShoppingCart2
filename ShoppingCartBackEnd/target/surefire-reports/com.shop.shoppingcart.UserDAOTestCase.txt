@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.shop.shoppingcart.UserDAOTestCase
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.004 sec
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.007 sec

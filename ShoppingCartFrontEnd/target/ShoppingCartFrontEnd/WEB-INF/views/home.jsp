@@ -7,6 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 ul {
     list-style-type: none;
@@ -128,10 +133,10 @@ span.psw {
 </head>
 <body>
 
-<center>
-<h2>Welcome to Shopping Cart</h2>
-</center>
 
+<h2 align="center">Welcome to Shopping Cart</h2>
+
+ 
 <hr color="blue" size="5">
 
 <a href="login" >Login</a>
@@ -139,6 +144,10 @@ span.psw {
 <a href="logout">Logout</a>
 
 <jsp:include page="product_menu.jsp"></jsp:include>
+
+<c:if test="${isUserSelectedProduct==true}">
+<jsp:include page="selected_product.jsp"></jsp:include>
+</c:if>
 
 ${welcomeMessage}
 ${errorMessage}

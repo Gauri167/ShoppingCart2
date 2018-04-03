@@ -65,4 +65,13 @@ public class CartController {
 		mv.addObject("cartList",cartList);
 		return mv;
 	}
+	
+	@GetMapping("/mycart")
+	public ModelAndView myCart()
+	{
+		ModelAndView mv=new ModelAndView("home");
+		mv.addObject("isUserClickedMyCart",true);
+		return mv;
+		
+	}
 }

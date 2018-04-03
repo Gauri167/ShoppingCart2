@@ -1,5 +1,7 @@
 package com.shop.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shop.dao.CartDAO;
 import com.shop.dao.UserDAO;
+import com.shop.domain.Cart;
 import com.shop.domain.User;
 
 @Controller
@@ -26,6 +30,12 @@ public class UserController {
        private UserDAO userDAO;
        
        @Autowired
+       private CartDAO cartDAO;
+       
+       @Autowired
+       private Cart cart;
+       
+       @Autowired
       HttpSession httpSession;
        
        @PostMapping("/validate")
@@ -39,6 +49,12 @@ public class UserController {
     	   else {
     		   httpSession.setAttribute("welcomeMessage","Welcome "+user.getName());
     		   httpSession.setAttribute("loggedInUserId",user.getEmailId());
+    		   httpSession.setAttribute("loggedInUserId",true);
+    		   //fetch how many products added
+    		   //
+    		   List<Cart> carts=cartDAO.cartlist(user.getEmailId());
+    		   httpSession.setAttribute("size",carts.size());
+    		   httpSession.setAttribute("carts",carts);
     		   if(user.getRole()=='A')
     			   httpSession.setAttribute("isAdmin",true);
     	   }

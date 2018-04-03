@@ -38,8 +38,25 @@ public class AdminController {
 	@GetMapping("/manage_category")
 	public ModelAndView adminCategory() 
 	{
-		log.debug("Starting of adminCategory Method");
 		ModelAndView mv=new ModelAndView("home");
+		//check whether user logged in or not
+	    String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
+	    if(loggedInUserId.equals(null))
+	    {
+	    	mv.addObject("errorMessage","Please Log in to do this operation");
+	    	return mv;
+	    }
+		//if not logeed in give msg please login
+		//of logged in check if user is admin or not
+	   Boolean isAdmin=(Boolean) httpSession.getAttribute("isAdmin");
+	    if(isAdmin==false|| isAdmin==null)
+	    {
+	    	mv.addObject("errorMessage","You are not Authorized");
+	    	return mv;
+	    }
+		// if not admin give msg not authorized
+		
+		log.debug("Starting of adminCategory Method");
 		mv.addObject("isAdminClickedManageCategories",true);
 		//mv.addObject("category",new Category());
 		List<Category> categories=categoryDAO.categorylist();

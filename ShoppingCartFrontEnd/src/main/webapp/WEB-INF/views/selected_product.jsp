@@ -11,17 +11,18 @@
 
 <form action="cart/add" method="post">
 
-<img alt="" src="${selectedProductImage}">
+<img alt="" src="${selectedProductImage}"><br>
 
-<input type="text" name="productName" value="${selectedProduct.name}">
-<input type="text" name="price" value="${selectedProduct.price}">
-<input type="text" name="quantity">
-<input type="submit" value="Add to Cart">
+Name:<input type="text" name="productName" value="${selectedProduct.name}"><br>
+Price:<input type="text" name="price" value="${selectedProduct.price}"><br>
+Quantity:<input type="text" name="quantity"><br>
 Description:${selectedProduct.description}<br>
+<input type="submit" value="Add to Cart">
+
 </form>
 
 
-<a href="cart/add?productName=${selectedProduct.name}&price=${selectedProduct.price}&quantity=1">Add To Cart</a>
-
+<%-- <a href="cart/add?productName=${selectedProduct.name}&price=${selectedProduct.price}&quantity=1">Add To Cart</a>
+ --%>
 </body>
 </html>

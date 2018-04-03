@@ -68,6 +68,7 @@ public class HomeController {
 		//at time of logout we need to remove it 
 		ModelAndView mv=new ModelAndView("home");
 		httpSession.invalidate();
+		//httpSession.removeAttribute("");
 		mv.addObject("logoutMessage","You are Successfully Logged Out");
 		log.debug("ending of logout Method");
 		return mv;

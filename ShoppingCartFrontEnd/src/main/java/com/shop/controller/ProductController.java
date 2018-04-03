@@ -41,18 +41,17 @@ public class ProductController {
 	@Autowired
 	HttpSession httpSession;
 	
-private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
-	
+    private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
 	private static final String imageDirectory="ShoppingCartImages";
 	
-	@GetMapping("/product/get/")
+	@GetMapping("/product/get")
 	public ModelAndView getProduct(@RequestParam String id)
 	{
 		log.debug("Starting of getProduct Method");
-		ModelAndView mv=new ModelAndView("redirect:/home");
+		ModelAndView mv=new ModelAndView("home");
 		product=productDAO.get(id);
-		mv.addObject("isUserSelectedProduct",true);
 		mv.addObject("selectedProduct",product);
+		mv.addObject("isUserSelectedProduct",true);
 		mv.addObject("selectedProductImage",rootPath+File.separator+imageDirectory+File.separator+id+".PNG");
 		log.debug("ending of getProduct Method");
 		return mv;

@@ -1,6 +1,8 @@
-com\shop\controller\CategoryController.class
+com\shop\controller\CartController.class
 com\shop\controller\SupplierController.class
-com\shop\controller\HomeController.class
 com\shop\controller\AdminController.class
+com\shop\controller\CategoryController.class
+com\shop\controller\HomeController.class
+com\shop\utility\FileUtil.class
 com\shop\controller\ProductController.class
 com\shop\controller\UserController.class

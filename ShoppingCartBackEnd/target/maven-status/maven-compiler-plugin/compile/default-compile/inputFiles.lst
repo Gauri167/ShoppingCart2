@@ -2,12 +2,15 @@ C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\domain\User.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\daoimpl\SupplierDAOImpl.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\dao\ProductDAO.java
+C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\dao\CartDAO.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\daoimpl\UserDAOImpl.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\domain\Supplier.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\dao\UserDAO.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\domain\Product.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\config\ApplicationContextConfig.java
+C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\domain\Cart.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\dao\CategoryDAO.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\dao\SupplierDAO.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\domain\Category.java
+C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\daoimpl\CartDAOImpl.java
 C:\Users\Gauri Gaur\eclipse-workspace\ECommProject2\ShoppingCartBackEnd\src\main\java\com\shop\daoimpl\ProductDAOImpl.java
