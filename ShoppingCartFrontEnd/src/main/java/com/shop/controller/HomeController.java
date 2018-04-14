@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,6 +51,14 @@ public class HomeController {
 		return mv;
 	}
 	
+	@GetMapping("/myprofile")
+	public ModelAndView myProfile()
+	{
+		ModelAndView mv=new ModelAndView("home");
+		mv.addObject("UserClickedMyProfile",true);
+		return mv;
+	}
+	
 	@RequestMapping("/signUp")
 	public ModelAndView signUp() {
 		
@@ -67,8 +76,9 @@ public class HomeController {
 		//at time of login we added user in http session
 		//at time of logout we need to remove it 
 		ModelAndView mv=new ModelAndView("home");
-		httpSession.invalidate();
-		//httpSession.removeAttribute("");
+		//httpSession.invalidate();
+		httpSession.removeAttribute("loggedInUserId");
+		httpSession.removeAttribute("isUserClickedLogin");
 		mv.addObject("logoutMessage","You are Successfully Logged Out");
 		log.debug("ending of logout Method");
 		return mv;

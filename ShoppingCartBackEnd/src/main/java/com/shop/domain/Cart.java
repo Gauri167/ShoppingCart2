@@ -21,9 +21,23 @@ public class Cart {
 	private String productName;
 	private int price;
 	private int quantity;
+	private String productId;
 	
 	@Transient//we are not going to persist/save data in table
 	private int total;
+	
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
 	
 	public int getId() {
 		return id;

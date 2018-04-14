@@ -26,8 +26,8 @@ public class CartController {
 	@Autowired
 	private Cart cart;
 	
-	@PostMapping("/cart/add")
-	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam int quantity)
+	@PostMapping("product/cart/add")
+	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam String quantity)
 	{
 		ModelAndView mv=new ModelAndView("home");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
@@ -38,7 +38,8 @@ public class CartController {
 		}
 		cart.setEmailId(loggedInUserId);
 		cart.setPrice(price);
-		cart.setQuantity(quantity);
+		cart.setQuantity(Integer.parseInt(quantity));
+		cart.setProductName(productName);
 		
 		if(cartDAO.save(cart))
 		{
@@ -49,7 +50,7 @@ public class CartController {
 	}
 	
 	//get my cart details
-	@GetMapping("/mycart/")
+	@GetMapping("/mycart")
 	public ModelAndView getMyCartDetails()
 	{
 		ModelAndView mv=new ModelAndView("home");
@@ -61,17 +62,29 @@ public class CartController {
 			mv.addObject("errorMessage","please log in to add any product to cart");
 			return mv;
 		}
+		mv.addObject("isUserClickedMyCart",true);
 		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
 		mv.addObject("cartList",cartList);
 		return mv;
 	}
 	
-	@GetMapping("/mycart")
+	@GetMapping("/remove")
+	public ModelAndView removeItem(@RequestParam int id)
+	{
+		ModelAndView mv=new ModelAndView("redirect:/mycart");
+		//cart=cartDAO.get(id);
+		if(cartDAO.delete(id))
+			mv.addObject("successMessage","Product removed successfully");
+		else mv.addObject("errorMessage","Cannot Remove");
+		return mv;
+	}
+	
+	/*@GetMapping("/mycart")
 	public ModelAndView myCart()
 	{
 		ModelAndView mv=new ModelAndView("home");
 		mv.addObject("isUserClickedMyCart",true);
 		return mv;
 		
-	}
+	}*/
 }

@@ -33,15 +33,17 @@
 </form>
 
  <ul class="nav navbar-nav navbar-right">
-     
+     <c:if test="${isUserClickedLogin==null}">
       <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </c:if>
      
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <c:if test="${loggedInUserId==true}">
+    <c:if test="${isUserClickedLogin==true}">
     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <li><a href="mycart"><span class="glyphicon glyphicon-shopping-cart"></span>MyCart(${size})</a></li>
+      <li><a href="myprofile">My Profile</a></li>
       </c:if>
     </ul>
     </div>

@@ -9,9 +9,9 @@ public interface CartDAO {
 	// to save new cart
 		public boolean save(Cart cart);
 		//to delete cart
-		public boolean delete(String id);
+		public boolean delete(int id);
 		//to get cart
-		public Cart get(String id);
+		public Cart get(int id);
 		//to get all carts added by a particular user
 		public List<Cart> cartlist(String emailId);
 }

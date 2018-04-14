@@ -43,7 +43,7 @@ public class CartDAOImpl implements CartDAO{
 		}
 	}
 	
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		
 		log.debug("Starting of delete Method");
 		
@@ -63,7 +63,7 @@ public class CartDAOImpl implements CartDAO{
 		
 	}
 	
-	public Cart get(String id) {
+	public Cart get(int id) {
 		
 		log.debug("Starting of get Method");
 		

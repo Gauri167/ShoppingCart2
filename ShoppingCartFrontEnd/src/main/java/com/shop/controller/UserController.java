@@ -49,7 +49,7 @@ public class UserController {
     	   else {
     		   httpSession.setAttribute("welcomeMessage","Welcome "+user.getName());
     		   httpSession.setAttribute("loggedInUserId",user.getEmailId());
-    		   httpSession.setAttribute("loggedInUserId",true);
+    		   httpSession.setAttribute("isUserClickedLogin",true);
     		   //fetch how many products added
     		   //
     		   List<Cart> carts=cartDAO.cartlist(user.getEmailId());

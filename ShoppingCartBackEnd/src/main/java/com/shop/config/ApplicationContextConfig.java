@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.shop.domain.Order;
+
 @Configuration
 @ComponentScan("com.shop")
 @EnableTransactionManagement
@@ -54,5 +56,5 @@ public class ApplicationContextConfig {
 		
 	}
 	
-
+	
 }

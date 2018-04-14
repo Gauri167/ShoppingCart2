@@ -9,11 +9,29 @@
 </head>
 <body>
 
+<table>
+<tr>
+
+<td></td>
+<td>Name:</td>
+<td>Price:</td>
+<td>Quantity:</td>
+
+</tr>
 
 
-<c:forEach var="cart" items="carts">
-Price:<input type="text" name="price" value="${cart.price}"><br>
+<c:forEach var="cart" items="${cartList}">
+<tr>
+
+<img alt="${productName}" src="">
+<input type="text" name="productName" value="${cart.productName}" disabled="disabled"><br>
+<input type="text" name="price" value="${cart.price}" disabled="disabled"><br>
+<input type="text" name="quantity" value="${cart.quantity}"><br>
+<a href="remove?id=${cart.id}">Remove</a><br>
+
+</tr>
 </c:forEach>
 
+</table>
 </body>
 </html>

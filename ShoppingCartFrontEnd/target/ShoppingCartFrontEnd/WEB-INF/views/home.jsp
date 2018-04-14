@@ -9,10 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
+<!-- <style>
 ul {
     list-style-type: none;
     margin: 0;
@@ -64,7 +61,7 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-</style>
+</style> -->
 
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -136,17 +133,20 @@ span.psw {
 
 <h2 align="center">Welcome to Shopping Cart</h2>
 
- 
-<hr color="blue" size="5">
-
-<a href="login" >Login</a>
+<!-- <a href="login" >Login</a>
 <a href="signUp">Sign-Up</a>
-<a href="logout">Logout</a>
+<a href="logout">Logout</a> -->
 
+<jsp:include page="newlogin.jsp"></jsp:include>
+ 
 <jsp:include page="product_menu.jsp"></jsp:include>
 
 <c:if test="${isUserSelectedProduct==true}">
 <jsp:include page="selected_product.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${isUserClickedMyCart==true}">
+<jsp:include page="cart.jsp"></jsp:include>
 </c:if>
 
 ${welcomeMessage}

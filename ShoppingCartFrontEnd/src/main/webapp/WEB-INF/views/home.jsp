@@ -147,6 +147,7 @@ span.psw {
 
 <c:if test="${isUserClickedMyCart==true}">
 <jsp:include page="cart.jsp"></jsp:include>
+<jsp:include page="checkout.jsp"></jsp:include>
 </c:if>
 
 ${welcomeMessage}
@@ -164,6 +165,10 @@ ${logoutMessage}
 
 <c:if test="${isAdmin==true}">
 <jsp:include page="admin/admin_home.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${UserClickedMyProfile==true}">
+<jsp:include page="myprofile.jsp"></jsp:include>
 </c:if>
 
 </body>
