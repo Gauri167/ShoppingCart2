@@ -1,5 +1,6 @@
 package com.shop.daoimpl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -34,6 +35,7 @@ public class OrderDAOImpl implements OrderDAO {
 		log.debug("Starting of SAVE Method");
 		
 		try {
+			order.setOrderDate(new Date());
 			sessionFactory.getCurrentSession().save(order);
 			log.debug("End of Save Method");
 			return true;
@@ -45,7 +47,7 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public boolean cancelOrder(String id) {
+	public boolean cancelOrder(int id) {
 		log.debug("Starting of CancelOrder Method");
 		try {
 			order=get(id);
@@ -71,7 +73,7 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public Order get(String id) {
+	public Order get(int id) {
 		log.debug("Starting of get Method");
 		try {
 			log.debug("end of get Method");

@@ -8,9 +8,9 @@ public interface OrderDAO {
 	
 	public boolean confirmOrder(Order order);
 	
-	public boolean cancelOrder(String id);
+	public boolean cancelOrder(int id);
 	
-	public Order get(String id);
+	public Order get(int id);
 	
 	public List<Order> getOrderDetails(String emailId);
 

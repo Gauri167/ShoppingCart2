@@ -12,13 +12,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table
+@Table(name="ORDERDETAILS")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String emailId;
+	private String name;
 	private int quantity;
 	private int amount;
 	private String productName;

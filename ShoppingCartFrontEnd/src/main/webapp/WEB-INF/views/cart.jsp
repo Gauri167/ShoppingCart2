@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<form action="buy" method="post">
 <table>
 <tr>
 
@@ -16,6 +17,7 @@
 <td>Name:</td>
 <td>Price:</td>
 <td>Quantity:</td>
+<td></td>
 
 </tr>
 
@@ -23,15 +25,20 @@
 <c:forEach var="cart" items="${cartList}">
 <tr>
 
-<img alt="${productName}" src="">
-<input type="text" name="productName" value="${cart.productName}" disabled="disabled"><br>
-<input type="text" name="price" value="${cart.price}" disabled="disabled"><br>
-<input type="text" name="quantity" value="${cart.quantity}"><br>
-<a href="remove?id=${cart.id}">Remove</a><br>
+<td><img alt="${cart.productName}" src=""></td>
+<td><input type="text" name="productName" value="${cart.productName}" disabled="disabled"></td>
+<td><input type="text" name="price" value="${cart.price}" disabled="disabled"></td>
+<td><input type="text" name="quantity" value="${cart.quantity}" disabled="disabled"></td>
+<td><a href="remove?id=${cart.id}">Remove</a></td>
+
 
 </tr>
 </c:forEach>
 
 </table>
+
+<input type="submit" value="BUY"> 
+</form>
+
 </body>
 </html>

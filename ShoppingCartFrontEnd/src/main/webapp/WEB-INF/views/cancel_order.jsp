@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
-
-</table>
+${myOrderDetails}<br>
+Are you sure you want to CANCEL Order?
+<a href="cancelOrder">YES</a>
+<a href="OrderDetails.jsp">NO</a>
 </body>
 </html>

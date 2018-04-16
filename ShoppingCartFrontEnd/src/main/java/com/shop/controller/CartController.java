@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.dao.CartDAO;
+import com.shop.dao.UserDAO;
 import com.shop.domain.Cart;
+import com.shop.domain.User;
 
 @Controller
 public class CartController {
@@ -25,6 +27,12 @@ public class CartController {
 	
 	@Autowired
 	private Cart cart;
+	
+	@Autowired
+	private UserDAO userDAO;
+	
+	@Autowired
+	private User user;
 	
 	@PostMapping("product/cart/add")
 	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam String quantity)
@@ -76,6 +84,19 @@ public class CartController {
 		if(cartDAO.delete(id))
 			mv.addObject("successMessage","Product removed successfully");
 		else mv.addObject("errorMessage","Cannot Remove");
+		return mv;
+	}
+	
+	@PostMapping("/buy")
+	public ModelAndView buyProduct()
+	{
+		ModelAndView mv=new ModelAndView("home");
+		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
+		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
+		mv.addObject("cartList",cartList);
+		user=userDAO.get(loggedInUserId);
+		mv.addObject("user",user);
+		mv.addObject("UserClickedBuy",true);
 		return mv;
 	}
 	
