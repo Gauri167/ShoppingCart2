@@ -2,12 +2,20 @@ package com.shop.utility;
 
 
 import java.io.File;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.shop.domain.Cart;
 
 public class FileUtil {
 
 	/*private static final Logger logger = LoggerFactory
 			.getLogger(FileUtil.class);*/
+	
+	
 	
 	private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
 	
@@ -16,6 +24,7 @@ public class FileUtil {
 	public static boolean fileCopyNIO(MultipartFile file,String fileName)
 	{
 		File dest=new File(rootPath+File.separator+imageDirectory+File.separator+fileName);
+		
 		try
 		{
 			file.transferTo(dest);

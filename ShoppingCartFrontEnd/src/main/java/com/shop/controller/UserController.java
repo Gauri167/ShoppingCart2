@@ -83,5 +83,17 @@ public class UserController {
     	   else mv.addObject("errorMessage","Password Mismatch");
     	   log.debug("ending of saveUser Method");
     	   return mv;
+    	   
        }
+       
+       @PostMapping("/myDetails")
+	   public ModelAndView getMyDetails()
+	   {
+		   ModelAndView mv=new ModelAndView("home");
+		   String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
+		   user=userDAO.get(loggedInUserId);
+		   mv.addObject("userDetails",user);
+		   mv.addObject("userClickedMyDetails",true);
+		   return mv;
+	   }
 }

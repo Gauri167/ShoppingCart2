@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Component
-@Entity
+@Entity//it defines that a spring container will be formed for this class
 @Table(name="ORDERDETAILS")
 public class Order {
 	
@@ -88,6 +88,12 @@ public class Order {
 	}
 	public void setProductPrice(String productPrice) {
 		this.productPrice = productPrice;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

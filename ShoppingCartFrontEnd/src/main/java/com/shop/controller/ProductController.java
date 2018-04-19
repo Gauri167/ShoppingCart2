@@ -41,7 +41,8 @@ public class ProductController {
 	@Autowired
 	HttpSession httpSession;
 	
-    private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
+private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
+	
 	private static final String imageDirectory="ShoppingCartImages";
 	
 	@GetMapping("/product/get")

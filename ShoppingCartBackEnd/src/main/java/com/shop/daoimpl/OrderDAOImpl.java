@@ -18,7 +18,7 @@ import com.shop.dao.OrderDAO;
 import com.shop.domain.Order;
 
 @Transactional
-@Repository("orderDAO")
+@Repository("orderDAO")//
 public class OrderDAOImpl implements OrderDAO {
 	
 	private static final Logger log=LoggerFactory.getLogger(OrderDAOImpl.class);

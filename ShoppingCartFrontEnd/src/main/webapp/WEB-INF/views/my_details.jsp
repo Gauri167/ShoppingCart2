@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,13 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table>
+<tr>
+<td>Name:</td>
+<td><input type="text" value="${userDetails.name}"></td>
+</tr>
 
-<a href="myDetails">Personal Details</a><br>
-<a href="myOrders">Order History</a><br>
-<c:if test="${UserClickedCancelOrder==true}">
-<jsp:include page="OrderDetails.jsp"></jsp:include>
-</c:if>
-<a href="#">Track Order</a><br>
+<tr>
+<td>Contact No.:</td>
+<td><input type="text" value="${userDetails.mobile}"></td>
+</tr>
 
+<tr>
+<td>Register Date:</td>
+<td><input type="text" value="${userDetails.registerDate}"></td>
+</tr>
+</table>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.shop.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -27,7 +28,6 @@ public class HomeController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 
-	
 	@RequestMapping("/")
 	public ModelAndView home() {
 		

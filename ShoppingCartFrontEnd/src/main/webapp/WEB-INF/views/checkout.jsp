@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form:form action="confirmOrder" method="post" modelAttribute="${cartList}">
+<c:forEach var="cart" items="${cartList}">
+<tr>
+<td><img alt="${productName}" src="${selectedProductImage}"></td>
+<td><form:input path="productName"  value="${cart.productName}" disabled="disabled"/></td>
+<td><form:input path="price" value="${cart.price}" disabled="disabled"/></td>
+<td><form:input path="quantity" value="${cart.quantity}" disabled="disabled"/></td>
+</tr>
+</c:forEach>
 
-<form action="confirmOrder" method="post">
+</form:form>
+<%-- <form action="confirmOrder" method="post">
 <table>
 
 <tr>
@@ -23,7 +34,7 @@
 
 <c:forEach var="cart" items="${cartList}">
 <tr>
-<td><img alt="${productName}" src=""></td>
+<td><img alt="${productName}" src="${selectedProductImage}"></td>
 <td><input type="text" name="productName" value="${cart.productName}" disabled="disabled"></td>
 <td><input type="text" name="price" value="${cart.price}" disabled="disabled"></td>
 <td><input type="text" name="quantity" value="${cart.quantity}" disabled="disabled"></td>
@@ -59,6 +70,6 @@ Choose Payment Option:
 
 <input type="submit" value="Confirm Order">
 
-</form>
+</form> --%>
 </body>
 </html>

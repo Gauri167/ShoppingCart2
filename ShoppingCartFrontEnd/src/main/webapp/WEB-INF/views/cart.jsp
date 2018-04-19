@@ -25,7 +25,7 @@
 <c:forEach var="cart" items="${cartList}">
 <tr>
 
-<td><img alt="${cart.productName}" src=""></td>
+<td><img alt="${cart.productName}" src="${selectedProductImage}"></td>
 <td><input type="text" name="productName" value="${cart.productName}" disabled="disabled"></td>
 <td><input type="text" name="price" value="${cart.price}" disabled="disabled"></td>
 <td><input type="text" name="quantity" value="${cart.quantity}" disabled="disabled"></td>
