@@ -32,7 +32,7 @@ public class OrderController {
 	public ModelAndView confirmOrder(@RequestParam String paymentMode,@RequestParam String name,@RequestParam String mobile,@RequestParam String address,
 			                         @RequestParam String productName,@RequestParam String price,@RequestParam int quantity)
 	{
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/sendorder");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
 		order.setEmailId(loggedInUserId);
 		order.setAddress(address);
@@ -44,7 +44,10 @@ public class OrderController {
 		int amount=Integer.parseInt(price)*quantity;
 		order.setAmount(amount);
         if(orderDAO.confirmOrder(order))
+        	{
         	mv.addObject("successMessage","Order Placed Successfully");
+        	httpSession.setAttribute("orderDetails",order);
+            }
         else mv.addObject("errorMessage","Could not place order");
         return mv;
 	}
