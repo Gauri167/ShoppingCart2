@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="buy" method="post">
+
 <table>
 <tr>
 
@@ -29,16 +29,14 @@
 <td><input type="text" name="productName" value="${cart.productName}" disabled="disabled"></td>
 <td><input type="text" name="price" value="${cart.price}" disabled="disabled"></td>
 <td><input type="text" name="quantity" value="${cart.quantity}" disabled="disabled"></td>
-<td><a href="remove?id=${cart.id}">Remove</a></td>
-
+<td><a href="${pageContext.request.contextPath}/remove?id=${cart.id}">Remove/</a></td>
+<td><a href="${pageContext.request.contextPath}/buy?id=${cart.id}">BUY</a></td>
 
 </tr>
 </c:forEach>
 
 </table>
 
-<input type="submit" value="BUY"> 
-</form>
 
 </body>
 </html>

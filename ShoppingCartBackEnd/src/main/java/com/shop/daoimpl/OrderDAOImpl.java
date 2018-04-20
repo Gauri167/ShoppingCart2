@@ -52,8 +52,8 @@ public class OrderDAOImpl implements OrderDAO {
 		try {
 			order=get(id);
 			if(order==null)
-				return false;
-			sessionFactory.getCurrentSession().delete(id);
+				{return false;}
+			else sessionFactory.getCurrentSession().delete(order);
 			log.debug("End of CancelOrder Method");
 			return true;
 		} catch (HibernateException e) {

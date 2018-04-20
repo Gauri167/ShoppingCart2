@@ -2,6 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+<%-- <spring:url value="/assests/css" var="css"/>
+<spring:url value="/assests/js" var="js"/> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,59 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-
-li {
-    float: left;
-}
-
-li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-</style> -->
+  <link rel="stylesheet" href="${css}/bootstrap.css">
+  
 
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -130,29 +84,26 @@ span.psw {
 </head>
 <body>
 
-
-<h2 align="center">Welcome to Shopping Cart</h2>
-
-<!-- <a href="login" >Login</a>
-<a href="signUp">Sign-Up</a>
-<a href="logout">Logout</a> -->
-
-<jsp:include page="newlogin.jsp"></jsp:include>
- 
+<!-- HEADER -->
+<header>
+<%-- <jsp:include page="newlogin.jsp"></jsp:include> --%>
+ <jsp:include page="newlogin.jsp"></jsp:include>
 <jsp:include page="product_menu.jsp"></jsp:include>
+
+</header>
+
+${welcomeMessage}
+${errorMessage}
+${successMessage}
+${logoutMessage}
 
 <c:if test="${isUserSelectedProduct==true}">
 <jsp:include page="selected_product.jsp"></jsp:include>
 </c:if>
 
 <c:if test="${isUserClickedMyCart==true}">
-<jsp:include page="cart.jsp"></jsp:include>
+<jsp:include page="cart.jsp"></jsp:include>0
 </c:if>
-
-${welcomeMessage}
-${errorMessage}
-${successMessage}
-${logoutMessage}
 
 <c:if test="${UserClickedLogin==true}">
 <jsp:include page="login.jsp"></jsp:include>
@@ -162,9 +113,37 @@ ${logoutMessage}
 <jsp:include page="signUp.jsp"></jsp:include>
 </c:if>
 
+
 <c:if test="${isAdmin==true}">
 <jsp:include page="admin/admin_home.jsp"></jsp:include>
 </c:if>
 
+<c:if test="${UserClickedMyProfile==true}">
+<jsp:include page="myprofile.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${UserClickedBuy==true}">
+<jsp:include page="checkout.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${userClickedMyDetails==true}">
+<jsp:include page="my_details.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${UserClickedCancelOrder==true}">
+<jsp:include page="OrderDetails.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${UserClickedDeleteOrder==true}">
+<jsp:include page="cancel_order.jsp"></jsp:include>
+</c:if>
+
+<!-- FOOTER -->
+<footer>
+<jsp:include page="newfooter.jsp"></jsp:include>
+</footer>
+<%-- <script src="${js}/jquery.js"></script>
+  <script src="${js}/bootstrap.min.js"></script>
+  <script src="${js}/popper.min.js"></script> --%>
 </body>
 </html>

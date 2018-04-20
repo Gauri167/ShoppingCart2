@@ -30,7 +30,7 @@ public class OrderController {
 	//
 	@PostMapping("/confirmOrder")
 	public ModelAndView confirmOrder(@RequestParam String paymentMode,@RequestParam String name,@RequestParam String mobile,@RequestParam String address,
-			                         @RequestParam String productName,@RequestParam String price,@RequestParam String quantity)
+			                         @RequestParam String productName,@RequestParam String price,@RequestParam int quantity)
 	{
 		ModelAndView mv=new ModelAndView("home");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
@@ -39,9 +39,9 @@ public class OrderController {
 		order.setMobile(mobile);
 		order.setProductName(productName);
 		order.setProductPrice(price);
-		order.setQuantity(Integer.parseInt(quantity));
+		order.setQuantity(quantity);
 		order.setPaymentMode(paymentMode);
-		int amount=Integer.parseInt(price)*Integer.parseInt(quantity);
+		int amount=Integer.parseInt(price)*quantity;
 		order.setAmount(amount);
         if(orderDAO.confirmOrder(order))
         	mv.addObject("successMessage","Order Placed Successfully");
@@ -52,22 +52,23 @@ public class OrderController {
 	
 
 	@GetMapping("/cancelOrder")
-	public ModelAndView cancelOrder(@RequestParam String id)
+	public ModelAndView cancelOrder(@RequestParam("id") int id)
 	{
 		ModelAndView mv=new ModelAndView("home");
-		if(orderDAO.cancelOrder(Integer.parseInt(id))==true)
+		
+		if(orderDAO.cancelOrder(id)==true)
 			mv.addObject("successMessage","Removed Successfully");
 		else mv.addObject("errorMessage","Cannot Remove");
 		return mv;
 	}
 	
-	@GetMapping("/myOrder/{id}")
-	public ModelAndView getOrderDetails(@RequestParam(value="id",required=false) String id)
+	@GetMapping("/myOrder")
+	public ModelAndView getOrderDetails(@RequestParam String id)
 	{
-		ModelAndView mv=new ModelAndView("redirect:/home");
+		ModelAndView mv=new ModelAndView("home");
 		order=orderDAO.get(Integer.parseInt(id));
 		mv.addObject("UserClickedDeleteOrder",true);
-		mv.addObject("myOrderDetails",order);
+		mv.addObject("order",order);
 		return mv;
 	}
 	

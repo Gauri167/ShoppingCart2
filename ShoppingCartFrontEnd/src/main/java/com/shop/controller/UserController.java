@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,6 +39,20 @@ public class UserController {
        @Autowired
       HttpSession httpSession;
        
+     /*  @RequestMapping(value="/newlogin")
+   	public ModelAndView login(@RequestParam(name="error", required = false)	String error,
+   			@RequestParam(name="logout", required = false) String logout) {
+   		ModelAndView mv= new ModelAndView("redirect:/login");
+   		mv.addObject("title", "Login");
+   		if(error!=null) {
+   			mv.addObject("message", "Username and Password is invalid!");
+   		}
+   		if(logout!=null) {
+   			mv.addObject("logout", "You have logged out successfully!");
+   		}
+   		return mv;
+   	}
+       */
        @PostMapping("/validate")
        public ModelAndView validate(@RequestParam("uname") String emailId,@RequestParam("pswd") String password) 
        {

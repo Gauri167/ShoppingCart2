@@ -1,4 +1,7 @@
 com\shop\dao\ProductDAO.class
+com\shop\daoimpl\OrderDAOImpl.class
+com\shop\dao\OrderDAO.class
+com\shop\domain\Order.class
 com\shop\dao\SupplierDAO.class
 com\shop\dao\CartDAO.class
 com\shop\domain\User.class

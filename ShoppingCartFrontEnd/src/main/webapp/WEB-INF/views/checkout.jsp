@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="confirmOrder" method="post" modelAttribute="${cartList}">
+<%-- <form:form action="confirmOrder" method="post" modelAttribute="${cartList}">
 <c:forEach var="cart" items="${cartList}">
 <tr>
 <td><img alt="${productName}" src="${selectedProductImage}"></td>
@@ -17,29 +17,27 @@
 <td><form:input path="price" value="${cart.price}" disabled="disabled"/></td>
 <td><form:input path="quantity" value="${cart.quantity}" disabled="disabled"/></td>
 </tr>
-</c:forEach>
+</c:forEach> 
 
-</form:form>
-<%-- <form action="confirmOrder" method="post">
+</form:form>--%>
+<form action="confirmOrder" method="post">
 <table>
 
 <tr>
 
 <td></td>
-<td>Name:</td>
+<td>Product:</td>
 <td>Price:</td>
 <td>Quantity:</td>
 
 </tr>
 
-<c:forEach var="cart" items="${cartList}">
 <tr>
-<td><img alt="${productName}" src="${selectedProductImage}"></td>
-<td><input type="text" name="productName" value="${cart.productName}" disabled="disabled"></td>
-<td><input type="text" name="price" value="${cart.price}" disabled="disabled"></td>
-<td><input type="text" name="quantity" value="${cart.quantity}" disabled="disabled"></td>
+<td><img alt="" src="${selectedProductImage}"></td>
+<td><input type="text" name="productName" value="${cart.productName}"></td>
+<td><input type="text" name="price" value="${cart.price}"></td>
+<td><input type="text" name="quantity" value="${cart.quantity}"></td>
 </tr>
-</c:forEach>
 
 <tr>
 <td>Name:</td>
@@ -57,19 +55,19 @@
 </tr>
 
 <tr>
-Choose Payment Option:
+<td>Choose Payment Option:</td>
 </tr>
 
 <tr>
-<input type="radio" name="paymentMode" value="COD">Cash on Delivery</input>
-<input type="radio" name="paymentMode" value="Card">Credit/Debit Card</input>
-<input type="radio" name="paymentMode" value="NetBank">Internet Banking</input><br>
+<td><input type="radio" name="paymentMode" value="COD">Cash on Delivery</td>
+<td><input type="radio" name="paymentMode" value="Card">Credit/Debit Card</td>
+<td><input type="radio" name="paymentMode" value="NetBank">Internet Banking</td>
 </tr>
 
 </table>
 
 <input type="submit" value="Confirm Order">
 
-</form> --%>
+</form>
 </body>
 </html>

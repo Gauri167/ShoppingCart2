@@ -54,6 +54,9 @@ public class CartController {
 			mv.addObject("successMessage","Product added to cart");
 		}
 		else mv.addObject("errorMessage","Product not added to cart");
+		mv.addObject("isUserClickedMyCart",true);
+		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
+		mv.addObject("cartList",cartList);
 		return mv;
 	}
 	
@@ -87,13 +90,13 @@ public class CartController {
 		return mv;
 	}
 	
-	@PostMapping("/buy")
-	public ModelAndView buyProduct()
+	@GetMapping("/buy")
+	public ModelAndView buyProduct(@RequestParam int id)
 	{
 		ModelAndView mv=new ModelAndView("home");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
-		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
-		mv.addObject("cartList",cartList);
+		cart=cartDAO.get(id);
+		mv.addObject("cart",cart);
 		user=userDAO.get(loggedInUserId);
 		mv.addObject("user",user);
 		mv.addObject("UserClickedBuy",true);

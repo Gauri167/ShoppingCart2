@@ -9,11 +9,8 @@
 </head>
 <body>
 
-<a href="myDetails">Personal Details</a><br>
+<a href="my_details">Personal Details</a><br>
 <a href="myOrders">Order History</a><br>
-<c:if test="${UserClickedCancelOrder==true}">
-<jsp:include page="OrderDetails.jsp"></jsp:include>
-</c:if>
 <a href="#">Track Order</a><br>
 
 </body>

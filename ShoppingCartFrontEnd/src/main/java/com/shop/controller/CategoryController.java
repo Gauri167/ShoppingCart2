@@ -30,7 +30,7 @@ public class CategoryController {
 	@Autowired
 	HttpSession httpSession;
 	
-	@GetMapping("/category/get/{id}")
+	@GetMapping("/category/get/")
 	public ModelAndView getCategory(@RequestParam String id)
 	{
 		log.debug("Starting of getCategory Method");
@@ -77,7 +77,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@GetMapping(name="/category/delete/")
+	@GetMapping("/category/delete/")
 	public ModelAndView deleteCategory(@RequestParam String id)
 	{ 
 		log.debug("starting of deleteCategory Method");

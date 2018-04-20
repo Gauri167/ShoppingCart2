@@ -2,6 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+<%-- <spring:url value="/assests/css" var="css"/>
+<spring:url value="/assests/js" var="js"/> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="C:/Users/Gauri Gaur/Desktop/website/assests/css/bootstrap.css">
+  <link rel="stylesheet" href="${css}/bootstrap.css">
+  
 
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -80,8 +86,8 @@ span.psw {
 
 <!-- HEADER -->
 <header>
-<jsp:include page="newlogin.jsp"></jsp:include>
- 
+<%-- <jsp:include page="newlogin.jsp"></jsp:include> --%>
+ <jsp:include page="newlogin.jsp"></jsp:include>
 <jsp:include page="product_menu.jsp"></jsp:include>
 
 </header>
@@ -96,7 +102,7 @@ ${logoutMessage}
 </c:if>
 
 <c:if test="${isUserClickedMyCart==true}">
-<jsp:include page="cart.jsp"></jsp:include>
+<jsp:include page="cart.jsp"></jsp:include>0
 </c:if>
 
 <c:if test="${UserClickedLogin==true}">
@@ -124,12 +130,20 @@ ${logoutMessage}
 <jsp:include page="my_details.jsp"></jsp:include>
 </c:if>
 
+<c:if test="${UserClickedCancelOrder==true}">
+<jsp:include page="OrderDetails.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${UserClickedDeleteOrder==true}">
+<jsp:include page="cancel_order.jsp"></jsp:include>
+</c:if>
+
 <!-- FOOTER -->
 <footer>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="newfooter.jsp"></jsp:include>
 </footer>
-<script src="C:/Users/Gauri Gaur/Desktop/website/assests/js/jquery.js"></script>
-<script src="C:/Users/Gauri Gaur/Desktop/website/assests/js/popper.js"></script>
-<script src="C:/Users/Gauri Gaur/Desktop/website/assests/js/bootstrap.min.js"></script>
+<%-- <script src="${js}/jquery.js"></script>
+  <script src="${js}/bootstrap.min.js"></script>
+  <script src="${js}/popper.min.js"></script> --%>
 </body>
 </html>

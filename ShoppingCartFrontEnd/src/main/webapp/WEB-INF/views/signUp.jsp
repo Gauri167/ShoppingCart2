@@ -92,7 +92,7 @@ button:hover {
     <input type="text" placeholder="Enter Name" name="name" required>
     
     <label for="mobile"><b>Contact Number</b></label>
-    <input type="text" placeholder="Enter Contact Number" name="mobile" required>
+    <input type="text" pattern="[7869]\d{9}" placeholder="Enter Contact Number" name="mobile" required>
     
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me

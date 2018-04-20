@@ -30,7 +30,7 @@ public class OrderDAOTestCase {
 		order=(Order) context.getBean("order");
 		orderDAO=(OrderDAO) context.getBean("orderDAO");
 	}
-	@Test
+	
 	public void saveOrderTestCase()
 	{
 		order.setAddress("Lucknow");
@@ -42,5 +42,13 @@ public class OrderDAOTestCase {
 		order.setQuantity(1);
 		boolean status=orderDAO.confirmOrder(order);
 		assertTrue("Confirm order test case",status);
+	}
+	
+	
+	public void deleteOrderTestCase()
+	{
+		
+		boolean status=orderDAO.cancelOrder(42);
+		assertTrue("Delete Order Test Case",status);
 	}
 }

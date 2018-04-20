@@ -10,32 +10,42 @@
 <body>
 <table>
 
-<tr>
-<td>Order No.</td>
-<td>Order Date</td>
-<td>Amount</td>
-<td>Payment Mode</td>
-<td>Items</td>
-<td>Cancel Order</td>
-</tr>
-
 <c:forEach var="order" items="${orders}">
 <tr>
+<td>Order No.</td>
 <td>${order.id}</td>
+</tr>
+
+<tr>
+<td>Order Date</td>
 <td>${order.orderDate}</td>
+</tr>
+
+<tr>
+<td>Amount</td>
 <td>${order.amount}</td>
+</tr>
+
+<tr>
+<td>Payment Mode</td>
 <td>${order.paymentMode}</td>
+</tr>
+
+<tr>
+<td>Item</td>
 <c:forEach var="product" items="${order.productName}">
 <td>${order.productName}</td>
 </c:forEach>
+</tr>
+
+<tr>
+<td>Cancel Order</td>
 <td><a href="myOrder?id=${order.id}">Cancel</a></td>
 </tr>
 </c:forEach>
 
 </table>
 
-<c:if test="${UserClickedDeleteOrder==true}">
-<jsp:include page="cancel_order.jsp"></jsp:include>
-</c:if>
+
 </body>
 </html>

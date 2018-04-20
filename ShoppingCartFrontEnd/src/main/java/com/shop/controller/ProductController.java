@@ -53,7 +53,7 @@ private static String rootPath = System.getProperty("catalina.home");//catalina 
 		product=productDAO.get(id);
 		mv.addObject("selectedProduct",product);
 		mv.addObject("isUserSelectedProduct",true);
-		mv.addObject("selectedProductImage",rootPath+File.separator+imageDirectory+File.separator+id+".PNG");
+		httpSession.setAttribute("selectedProductImage",rootPath+File.separator+imageDirectory+File.separator+id+".PNG");
 		log.debug("ending of getProduct Method");
 		return mv;
 	}

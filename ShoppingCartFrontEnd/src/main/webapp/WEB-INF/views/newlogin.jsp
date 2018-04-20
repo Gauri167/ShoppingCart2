@@ -19,7 +19,7 @@
 <div class="container-fluid">
 <div class="navbar navbar-inverse">
 <div class="navbr-header">
-<a class="navbar-brand" href="#">ShoppingCart</a>
+<a class="navbar-brand" href="${pageContext.request.contextPath}/">ShoppingCart</a>
 </div>
 <form class="navbar-form navbar-left" action="">
 <div class="input-group">
@@ -34,16 +34,17 @@
 
  <ul class="nav navbar-nav navbar-right">
      <c:if test="${isUserClickedLogin==null}">
-      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="${pageContext.request.contextPath}/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="${pageContext.request.contextPath}/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </c:if>
      
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <c:if test="${isUserClickedLogin==true}">
-    <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      <li><a href="mycart"><span class="glyphicon glyphicon-shopping-cart"></span>MyCart(${size})</a></li>
-      <li><a href="myprofile">My Profile</a></li>
+    <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="${pageContext.request.contextPath}/mycart"><span class="glyphicon glyphicon-shopping-cart"></span>MyCart(${size})</a></li>
+      <li><a href="${pageContext.request.contextPath}/myprofile">My Profile</a></li>
+      <%-- <li><a href="#">${pageContext.request.userPrincipal.name}</a></li> --%>
       </c:if>
     </ul>
     </div>
