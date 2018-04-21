@@ -29,6 +29,7 @@ public class MailController {
 		String from="167gauri.g@gmail.com";
 		EmailSend.sendMail(loggedInUserId,from,"Order Details", description);
 		mv.addObject("successMessage","MailSend");
+		mv.addObject("thankyouPage",true);
 		return mv;
 	}
 }

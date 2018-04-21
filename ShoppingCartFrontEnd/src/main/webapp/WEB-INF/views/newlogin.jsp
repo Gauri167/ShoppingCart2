@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shopping Cart</title>
+<title>EZ Shopping</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,18 +19,8 @@
 <div class="container-fluid">
 <div class="navbar navbar-inverse">
 <div class="navbr-header">
-<a class="navbar-brand" href="${pageContext.request.contextPath}/">ShoppingCart</a>
+<a class="navbar-brand" href="${pageContext.request.contextPath}/">EZ Shopping</a>
 </div>
-<form class="navbar-form navbar-left" action="">
-<div class="input-group">
-<input type="text" class="form-control" placeholder="Search" name="search"/>
-<div class="input-group-btn">
-<button class="btn btn-default" type="submit">
-<i class="glyphicon glyphicon-search"></i>
-</button>
-</div>
-</div>
-</form>
 
  <ul class="nav navbar-nav navbar-right">
      <c:if test="${isUserClickedLogin==null}">

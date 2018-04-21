@@ -79,6 +79,7 @@ public class HomeController {
 		//httpSession.invalidate();
 		httpSession.removeAttribute("loggedInUserId");
 		httpSession.removeAttribute("isUserClickedLogin");
+		mv.addObject("thankyouPage",true);
 		mv.addObject("logoutMessage","You are Successfully Logged Out");
 		log.debug("ending of logout Method");
 		return mv;

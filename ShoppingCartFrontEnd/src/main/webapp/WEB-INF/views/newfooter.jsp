@@ -3,6 +3,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
+
 <!-- Footer -->
 	<section id="footer">
 		<div class="container">
@@ -12,18 +13,27 @@
 					<ul class="list-unstyled quick-links">
 					
 						<li>
-								<a class="icon fb" href="#">
+								<a class="icon fb" href="facebook.com">
 									<i class="fa fa-facebook"></i>
+									Facebook
 								</a>
 							</li>
 							<li>
 								<a class="icon tw" href="#">
 									<i class="fa fa-twitter"></i>
+								Twitter
 								</a>
 							</li>
 							<li>
 								<a class="icon gp" href="#">
 									<i class="fa fa-google-plus"></i>
+								Google-Plus
+								</a>
+							</li>
+							<li>
+								<a class="icon gp" href="#">
+									<i class="fa fa-google-plus"></i>
+								Instagram
 								</a>
 							</li>
 					</ul>
@@ -31,22 +41,21 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="home.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Terms and Policy</a></li>
+						<li><a href="${pageContext.request.contextPath}/homepage"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="${pageContext.request.contextPath}/aboutus"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="${pageContext.request.contextPath}/FAQ"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="${pageContext.request.contextPath}/terms"><i class="fa fa-angle-double-right"></i>Terms and Policy</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Get in Touch</h5>
 					<ul class="list-unstyled quick-links">
 						<li>
-								<i class="fa fa-map-marker"></i> India</li>
+								<i class="fa fa-map-marker"></i>India</li>
 							<li>
-								<i class="fa fa-mobile"></i> 333 222 3333 </li>
+								<i class="fa fa-mobile"></i>ContactNo.:8569741772 </li>
 							<li>
-								<i class="fa fa-phone"></i> +222 11 4444 </li>
+								<i class="fa fa-phone"></i>Phone:0522-232546 </li>
 							<li>
 								<i class="fa fa-envelope-o"></i>
 								<a href="mailto:example@mail.com"> mail@gauri1697@yahoo.com</a>
@@ -57,10 +66,11 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+					<li class="list-inline-item"><a href="javascript:void();"><i
+							class="fa fa-instagram"></i></a></li>
+					<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
 						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
 					</ul>
 				</div>

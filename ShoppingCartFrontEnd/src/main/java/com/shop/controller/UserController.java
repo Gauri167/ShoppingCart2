@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,7 +83,7 @@ public class UserController {
     		                        @RequestParam("name") String name,@RequestParam("mobile")String mobile)
        {
     	   log.debug("Starting of saveUser Method");
-    	   ModelAndView mv=new ModelAndView("home");
+    	   ModelAndView mv=new ModelAndView("login");
     	   if(rpassword.equals(password))
     	   {
     		   user.setEmailId(emailId);
@@ -101,7 +102,7 @@ public class UserController {
     	   
        }
        
-       @PostMapping("/myDetails")
+       @GetMapping("/myDetails")
 	   public ModelAndView getMyDetails()
 	   {
 		   ModelAndView mv=new ModelAndView("home");

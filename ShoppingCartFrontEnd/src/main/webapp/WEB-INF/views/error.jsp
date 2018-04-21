@@ -1,6 +1,6 @@
 
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="newlogin.jsp"></jsp:include>
 		
 		<div class="content">
 		
