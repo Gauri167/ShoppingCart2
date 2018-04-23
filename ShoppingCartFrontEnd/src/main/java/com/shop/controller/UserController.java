@@ -1,6 +1,7 @@
 package com.shop.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -65,7 +66,9 @@ public class UserController {
     	   else {
     		   httpSession.setAttribute("welcomeMessage","Welcome "+user.getName());
     		   httpSession.setAttribute("loggedInUserId",user.getEmailId());
-    		   httpSession.setAttribute("isUserClickedLogin",true);
+    		   
+    		   System.out.println(httpSession.getAttribute("loggedInUserId"));
+    		   httpSession.setAttribute("UserClickedLogin",true);
     		   //fetch how many products added
     		   //
     		   List<Cart> carts=cartDAO.cartlist(user.getEmailId());
@@ -83,7 +86,7 @@ public class UserController {
     		                        @RequestParam("name") String name,@RequestParam("mobile")String mobile)
        {
     	   log.debug("Starting of saveUser Method");
-    	   ModelAndView mv=new ModelAndView("login");
+    	   ModelAndView mv=new ModelAndView("home");
     	   if(rpassword.equals(password))
     	   {
     		   user.setEmailId(emailId);
@@ -97,6 +100,7 @@ public class UserController {
     	   }
     	   
     	   else mv.addObject("errorMessage","Password Mismatch");
+    	   mv.addObject("isUserClickedLogin",true);
     	   log.debug("ending of saveUser Method");
     	   return mv;
     	   
@@ -112,4 +116,56 @@ public class UserController {
 		   mv.addObject("userClickedMyDetails",true);
 		   return mv;
 	   }
+       
+       @PostMapping("/forgotpswd")
+       public ModelAndView frgtpassword(@RequestParam String email)
+       {
+    	   ModelAndView mv;
+    	   List<User> users=userDAO.userlist();
+    	  for(User user:users)
+    	  {
+    		  if(email.equals(user.getEmailId()))
+    		  {
+    			 mv=new ModelAndView("redirect:/sendpswd");
+    			 httpSession.setAttribute("mailId",email);
+    			 return mv;
+    		  }
+    	  }
+    	   mv=new ModelAndView("home");
+    	   mv.addObject("errorMessage","Invalid emailId");
+    	  return mv;
+       }
+       
+       @GetMapping("/checkOTP")
+       public ModelAndView check(@RequestParam long otp)
+       {
+    	   ModelAndView mv=new ModelAndView("home");
+    	   long n=(long) httpSession.getAttribute("otp");
+    	   if(n==otp)
+    	   {
+    		   mv.addObject("userClickedEnternewPasswrd",true);
+    		   return mv;
+    	   }
+    	   mv.addObject("errorMessage","Incorrect OTP try again");
+    	   return mv;
+       }
+       
+       @PostMapping("/newpswd")
+       public ModelAndView newPassword(@RequestParam String password,@RequestParam String cnfrmpswd)
+       {
+    	   ModelAndView mv=new ModelAndView("home");
+    	   if(password.equals(cnfrmpswd))
+    	   {
+    		   String email=(String) httpSession.getAttribute("mailId");
+    		   user.setEmailId(email);
+    		   user.setPassword(password);
+    		   if(userDAO.update(user)==true)
+    		   {
+    			   mv.addObject("isUserClickedLogin",true);
+    			   return mv;
+    		   }
+    	   }
+    	   mv.addObject("errorMessage","Invalid Password Please Try Again");
+    	   return mv;
+       }
 }

@@ -43,7 +43,7 @@ ${logoutMessage}<br>
 <jsp:include page="cart.jsp"></jsp:include>0
 </c:if>
 
-<c:if test="${UserClickedLogin==true}">
+<c:if test="${isUserClickedLogin==true}">
 <jsp:include page="login.jsp"></jsp:include>
 </c:if>
 
@@ -51,6 +51,17 @@ ${logoutMessage}<br>
 <jsp:include page="signUp.jsp"></jsp:include>
 </c:if>
 
+<c:if test="${UserClickedForgotPassword==true}">
+<jsp:include page="forgotPassword.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${isUserEntersOTP==true}">
+<jsp:include page="EnterOTP.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${userClickedEnternewPasswrd==true}">
+<jsp:include page="createPassword.jsp"></jsp:include>
+</c:if>
 
 <c:if test="${isAdmin==true}">
 <jsp:include page="admin/admin_home.jsp"></jsp:include>

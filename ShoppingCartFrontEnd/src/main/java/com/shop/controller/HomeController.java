@@ -46,7 +46,7 @@ public class HomeController {
 		
 		log.debug("Starting of login Method");
 		ModelAndView mv=new ModelAndView("home");
-		mv.addObject("UserClickedLogin",true);
+		mv.addObject("isUserClickedLogin",true);
 		log.debug("ending of login Method");
 		return mv;
 	}
@@ -56,6 +56,14 @@ public class HomeController {
 	{
 		ModelAndView mv=new ModelAndView("home");
 		mv.addObject("UserClickedMyProfile",true);
+		return mv;
+	}
+	
+	@GetMapping("/forgotPasswrd")
+	public ModelAndView frgtPasswrd()
+	{
+		ModelAndView mv=new ModelAndView("home");
+		mv.addObject("UserClickedForgotPassword",true);
 		return mv;
 	}
 	
@@ -78,7 +86,7 @@ public class HomeController {
 		ModelAndView mv=new ModelAndView("home");
 		//httpSession.invalidate();
 		httpSession.removeAttribute("loggedInUserId");
-		httpSession.removeAttribute("isUserClickedLogin");
+		httpSession.removeAttribute("UserClickedLogin");
 		mv.addObject("thankyouPage",true);
 		mv.addObject("logoutMessage","You are Successfully Logged Out");
 		log.debug("ending of logout Method");

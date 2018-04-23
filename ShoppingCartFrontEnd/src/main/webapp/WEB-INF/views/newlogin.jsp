@@ -23,14 +23,14 @@
 </div>
 
  <ul class="nav navbar-nav navbar-right">
-     <c:if test="${isUserClickedLogin==null}">
+     <c:if test="${UserClickedLogin==null}">
       <li><a href="${pageContext.request.contextPath}/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="${pageContext.request.contextPath}/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </c:if>
      
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <c:if test="${isUserClickedLogin==true}">
+    <c:if test="${UserClickedLogin==true}">
     <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <li><a href="${pageContext.request.contextPath}/mycart"><span class="glyphicon glyphicon-shopping-cart"></span>MyCart(${size})</a></li>
       <li><a href="${pageContext.request.contextPath}/myprofile">My Profile</a></li>

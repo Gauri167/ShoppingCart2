@@ -57,6 +57,7 @@ public class CartController {
 		mv.addObject("isUserClickedMyCart",true);
 		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
 		mv.addObject("cartList",cartList);
+		httpSession.setAttribute("size",cartList.size());
 		return mv;
 	}
 	
@@ -84,9 +85,12 @@ public class CartController {
 	{
 		ModelAndView mv=new ModelAndView("redirect:/mycart");
 		//cart=cartDAO.get(id);
+		String loggedInUserId= (String) httpSession.getAttribute("loggedInUserId");
 		if(cartDAO.delete(id))
 			mv.addObject("successMessage","Product removed successfully");
 		else mv.addObject("errorMessage","Cannot Remove");
+		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
+		httpSession.setAttribute("size",cartList.size());
 		return mv;
 	}
 	
