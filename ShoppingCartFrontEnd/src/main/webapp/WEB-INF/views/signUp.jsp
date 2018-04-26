@@ -95,7 +95,7 @@ button:hover {
     <input type="text" pattern="[7869]\d{9}" placeholder="Enter Contact Number" name="mobile" required>
     
     <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      <input type="checkbox" name="remember" style="margin-bottom:15px"> Remember me
     </label>
     
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms and Privacy</a>.</p>

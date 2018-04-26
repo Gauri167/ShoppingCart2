@@ -1,4 +1,4 @@
-<!DOCTYPE H1 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <head>
 <meta charset="utf-8">
 </head>
@@ -523,9 +523,9 @@ In case the Seller doesn't close the ticket in 3 days from the date of intimatio
 Further for returns being made by Buyer to the Seller of the product, the following parameters needs to be ensured by the Buyer:
 Category 	Condition
 Electronics 	Should be included
-Clothing and Footwear 	Should be "New & Unworn" (other than for trial)
-Beauty, Health & Personal Care 	Should be "New & Unopened"
-Sports & Equipment 	Should be "New" and returned with original packaging
+Clothing and Footwear 	Should be "New and Unworn" (other than for trial)
+Beauty, Health and Personal Care 	Should be "New and Unopened"
+Sports and Equipment 	Should be "New" and returned with original packaging
 Office Products 	Should be "New" and returned with original packaging
 Jewellery 	Should be "New" and returned with original packaging
 
@@ -662,7 +662,7 @@ Seller expressly agrees that issuing the correct and complete invoice is the sol
 
     Item not as described - meaning item is not what Buyer expected. Dispute will be decided in accordance with the dispute policies.
 
-Email Abuse & Threat Policy
+Email Abuse and Threat Policy
 
 Private communication, including email correspondence, is not regulated by Just Order. Just Order encourages its Users to be professional, courteous and respectful when communicating by email.
 
@@ -740,7 +740,7 @@ I, [name] ____________________________ of [address] _________________________ do
 
 Name ___________________________________________________________
 
-Title & Company ________________________________________________________
+Title and Company ________________________________________________________
 
 Address _________________________________________________________
 
@@ -1344,9 +1344,9 @@ In case the Seller doesn't close the ticket in 3 days from the date of intimatio
 Further for returns being made by Buyer to the Seller of the product, the following parameters needs to be ensured by the Buyer:
 Category 	Condition
 Electronics 	Should be included
-Clothing and Footwear 	Should be "New & Unworn" (other than for trial)
-Beauty, Health & Personal Care 	Should be "New & Unopened"
-Sports & Equipment 	Should be "New" and returned with original packaging
+Clothing and Footwear 	Should be "New and Unworn" (other than for trial)
+Beauty, Health and Personal Care 	Should be "New and Unopened"
+Sports and Equipment 	Should be "New" and returned with original packaging
 Office Products 	Should be "New" and returned with original packaging
 Jewellery 	Should be "New" and returned with original packaging
 
@@ -1483,7 +1483,7 @@ Seller expressly agrees that issuing the correct and complete invoice is the sol
 
     Item not as described - meaning item is not what Buyer expected. Dispute will be decided in accordance with the dispute policies.
 
-Email Abuse & Threat Policy
+Email Abuse and Threat Policy
 
 Private communication, including email correspondence, is not regulated by Just Order. Just Order encourages its Users to be professional, courteous and respectful when communicating by email.
 
@@ -1561,7 +1561,7 @@ I, [name] ____________________________ of [address] _________________________ do
 
 Name ___________________________________________________________
 
-Title & Company ________________________________________________________
+Title and Company ________________________________________________________
 
 Address _________________________________________________________
 

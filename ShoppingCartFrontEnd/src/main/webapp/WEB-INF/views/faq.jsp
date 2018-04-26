@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -38,7 +38,7 @@
 						<a href="#" title="click here">If I request for a replacement, when will I get it?</a>
 						<ul>
 							<li class="subitem1">
-								<p>Visit My Orders to check the status of your replacement.In most locations, the replacement item is delivered to you at the time of pick-up. In all other areas, the replacement is initiated after the originally delivered item is picked up. Please check the SMS & email we send you for your replacement request for more details.</p>
+								<p>Visit My Orders to check the status of your replacement.In most locations, the replacement item is delivered to you at the time of pick-up. In all other areas, the replacement is initiated after the originally delivered item is picked up. Please check the SMS and email we send you for your replacement request for more details.</p>
 							</li>
 						</ul>
 					</li>

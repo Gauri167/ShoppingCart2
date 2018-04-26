@@ -17,7 +17,7 @@ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 			 />
 		<access-denied-handler error-page="/accessDenied" />
 		<csrf disabled="true" />
-		<logout logout-url="/logout" />
+		<logout logout-url="${pageContext.request.contextPath}/logout" />
 </http>
 
 <beans:bean id="passwordEncoder"

@@ -3,12 +3,7 @@ package com.shop.utility;
 
 import java.io.File;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.shop.domain.Cart;
 
 public class FileUtil {
 

@@ -1,8 +1,6 @@
 package com.shop.controller;
 
 import java.util.Random;
-import java.util.stream.LongStream;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;

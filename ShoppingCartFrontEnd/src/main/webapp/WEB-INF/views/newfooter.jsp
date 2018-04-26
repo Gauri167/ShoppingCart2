@@ -78,7 +78,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
 					<p>Order online. All your favourite products from the low price online supermarket.Home delivery in Delhi,
-						Gurgaon, Bengaluru, Mumbai and other cities in India. Lowest prices guaranteed on all products.Shop online with the best deals & offers.Now Get Upto 40% Off On Everyday Essential Products Shown On The Offer Page. The range includes Grocery, Personal Care,
+						Gurgaon, Bengaluru, Mumbai and other cities in India. Lowest prices guaranteed on all products.Shop online with the best deals and offers.Now Get Upto 40% Off On Everyday Essential Products Shown On The Offer Page. The range includes Grocery, Personal Care,
 						Baby Care, Pet Supplies, Healthcare, ELectronics, Home and Furniture and Other Daily Need Products. Discount May Vary From Product To Product</p>
 					<p class="h6">© 2017 Grocery Shoppy. All rights reserved | Design by<a class="text-green ml-2" href="#" target="_blank">Gauri Gaur</a></p>
 				</div>

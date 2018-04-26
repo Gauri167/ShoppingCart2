@@ -38,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			user.setRole('C');
 			user.setRegisterDate(new Date());
-		sessionFactory.getCurrentSession().save(user);
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		log.debug("Ending of SAVE Method");
 			return true;
 		} 

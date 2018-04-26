@@ -1,8 +1,6 @@
 package com.shop.controller;
 
 import java.util.List;
-import java.util.Random;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,9 +33,6 @@ public class UserController {
        private CartDAO cartDAO;
        
        @Autowired
-       private Cart cart;
-       
-       @Autowired
       HttpSession httpSession;
        
      /*  @RequestMapping(value="/newlogin")
@@ -56,10 +50,22 @@ public class UserController {
    	}
        */
        @PostMapping("/validate")
-       public ModelAndView validate(@RequestParam("uname") String emailId,@RequestParam("pswd") String password) 
+       public ModelAndView validate(@RequestParam("uname") String emailId,@RequestParam("pswd") String password,@RequestParam(value="keepLoggedIn",required=false) boolean keepLoggedIn) 
        {
     	   log.debug("Starting of validate Method");
+    	   user=userDAO.get(emailId);
     	   ModelAndView mv=new ModelAndView("home");
+    	   user.setEmailId(emailId);
+		   user.setName(user.getName());
+		   user.setMobile(user.getMobile());
+		   user.setRegisterDate(user.getRegisterDate());
+		   user.setRole(user.getRole());
+		   user.setRememberMe(user.isRememberMe());
+		   user.setPassword(password);
+    	   if(keepLoggedIn==true)
+    	   user.setLoggedIn(true);
+    	   else user.setLoggedIn(false);
+    	   userDAO.update(user);
     	   user=userDAO.validate(emailId, password);
     	   if(user==null)
     		   mv.addObject("errorMessage","Invalid Id or Password");
@@ -83,24 +89,40 @@ public class UserController {
        
        @PostMapping("/saveUser")
        public ModelAndView saveUser(@RequestParam("email") String emailId,@RequestParam("pswd") String password,@RequestParam("rpswd") String rpassword,
-    		                        @RequestParam("name") String name,@RequestParam("mobile")String mobile)
+    		                        @RequestParam("name") String name,@RequestParam("mobile")String mobile,@RequestParam(value="remember",required=false) boolean remember)
        {
     	   log.debug("Starting of saveUser Method");
-    	   ModelAndView mv=new ModelAndView("home");
+    	   ModelAndView  mv=new ModelAndView("redirect:/createCookie");
     	   if(rpassword.equals(password))
     	   {
+    		  /* String ip=(String) httpSession.getAttribute("ip");
+    		   String mac=(String) httpSession.getAttribute("macAdd");
+    		   System.out.println(ip);
+    		   System.out.println(mac);*/
+    		  /* if(ip==null && mac==null)
+    		   {
+        	   mv=new ModelAndView("redirect:/generateIp");
+    		   }*/
+    		   
     		   user.setEmailId(emailId);
     		   user.setPassword(rpassword);
     		   user.setName(name);
     		   user.setMobile(mobile);
+    		   /*user.setIpAddress(ip);
+    		   user.setMacAdress(mac);*/
+    		   if(remember==true)
+    			   user.setRememberMe(true);
+    		   else user.setRememberMe(false);
     		   
-    		   if(userDAO.save(user)==true)
+    		   if(userDAO.save(user)==true) {
     			   httpSession.setAttribute("welcomeMessage","Welcome "+user.getName());
+    		       httpSession.setAttribute("emailId",emailId);
+    		       httpSession.setAttribute("password",password);
+    		       httpSession.setAttribute("rememberMe",remember);}
     		   else httpSession.setAttribute("errorMessage","Invalid...Please try again");
     	   }
-    	   
     	   else mv.addObject("errorMessage","Password Mismatch");
-    	   mv.addObject("isUserClickedLogin",true);
+    	   //mv.addObject("isUserClickedLogin",true);
     	   log.debug("ending of saveUser Method");
     	   return mv;
     	   
@@ -158,6 +180,13 @@ public class UserController {
     	   {
     		   String email=(String) httpSession.getAttribute("mailId");
     		   user.setEmailId(email);
+    		   user.setName(user.getName());
+    		   user.setMobile(user.getMobile());
+    		   user.setRegisterDate(user.getRegisterDate());
+    		   user.setRole(user.getRole());
+    		   user.setRememberMe(user.isRememberMe());
+    		   /*user.setIpAddress(user.getIpAddress());
+    		   user.setMacAdress(user.getMacAdress());*/
     		   user.setPassword(password);
     		   if(userDAO.update(user)==true)
     		   {

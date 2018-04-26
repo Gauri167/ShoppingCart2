@@ -30,7 +30,19 @@ public class User {
 	
 	@Column(name="RegisterDate")
 	private Date registerDate;
+	
+	private boolean rememberMe;
+	
+	@Column(name="KeepLoggedIn")
+	private boolean loggedIn;
 
+	
+	public boolean isRememberMe() {
+		return rememberMe;
+	}
+	public void setRememberMe(boolean rememberMe) {
+		this.rememberMe = rememberMe;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -71,5 +83,11 @@ public class User {
 	}
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
+	}
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 }

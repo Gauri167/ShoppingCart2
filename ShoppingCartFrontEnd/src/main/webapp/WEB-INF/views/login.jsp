@@ -65,19 +65,19 @@ span.psw {
 
 <h2>Login Form</h2>
 
-<form action="validate" method="post">
+<form action="${pageContext.request.contextPath}/validate" method="post">
 
 
   <div class="container">
     <label for="uname"><b>Email Id</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" required value="${mail}">
 
     <label for="pswd"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="pswd" required>
+    <input type="password" placeholder="Enter Password" name="pswd" required value="${pswd}">
         
     <button type="submit">Login</button>
     <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
+      <input type="checkbox" name="keepLoggedIn"> Keep me Logged-In
     </label>
   </div>
 
