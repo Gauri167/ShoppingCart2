@@ -8,7 +8,7 @@
 <spring:url value="/assests/js" var="js"/> --%>
 
 <!DOCTYPE html>
-<html>
+<html ng-app="getCookies">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -105,8 +105,12 @@ ${logoutMessage}<br>
 
 <!-- FOOTER -->
 <footer>
+{{2<3}}
 <jsp:include page="newfooter.jsp"></jsp:include>
+
 </footer>
+
+
 <%-- <script src="${js}/jquery.js"></script>
   <script src="${js}/bootstrap.min.js"></script>
   <script src="${js}/popper.min.js"></script> --%>

@@ -39,15 +39,19 @@ public class CookieController {
 		String emailId=(String) httpSession.getAttribute("emailId");
 		String password=(String) httpSession.getAttribute("password");
 		Cookie mailCookie=new Cookie("emailId",emailId);
+		mailCookie.setMaxAge(60*60*24*10);
+		System.out.println(mailCookie.getMaxAge());
 		Cookie pswdCookie=new Cookie("password", password);
+		pswdCookie.setMaxAge(60*60*24*10);
+		System.out.println(pswdCookie.getMaxAge());
 		boolean remember=(boolean) httpSession.getAttribute("rememberMe");
 		      mailCookie.setValue(emailId);
 		       pswdCookie.setValue(password);
-		       System.out.println("37");
+		       
 		//response.addCookie(cookie);
 		response.addCookie(mailCookie);
 		response.addCookie(pswdCookie);
-		 System.out.println("41");
+		 
 		mv.addObject("isUserClickedLogin",true);
 		if(remember==true)
 		{
@@ -72,7 +76,7 @@ public class CookieController {
 		if(cookies!=null) {
 			for(Cookie mcookie:cookies)
 			{
-				if(mcookie.getName().equals("mailCookie"))
+				if(mcookie.getName().equals("emailId"))
 				emailId=mcookie.getValue();
 				mcookie.setMaxAge(60*60*24);
 				int maxage=mcookie.getMaxAge();
@@ -81,8 +85,10 @@ public class CookieController {
 			}
 			for(Cookie pcookie:cookies)
 			{
-				if(pcookie.getName().equals("pswdCookie"))
+				if(pcookie.getName().equals("password"))
 					password=pcookie.getValue();
+				int maxage=pcookie.getMaxAge();
+				System.out.println(maxage);
 				System.out.println(password);
 			}
 		}
@@ -91,16 +97,19 @@ public class CookieController {
 		   return mv;
 		}
 		else {
-			userDAO.get(emailId);
+			user=userDAO.get(emailId);
 			boolean loggedIn=user.isLoggedIn();
+			System.out.println(loggedIn);
 			if(loggedIn==true)
 			{
 				mv.addObject("uname",emailId);
 				mv.addObject("pswd",password);
 				mv.addObject("keepLoggedIn",loggedIn);
-				mv=new ModelAndView("redirect:/validate");
-				return mv;}
+                System.out.println("redirect to validate method");
+				return mv;
+                }
 			else {mv=new ModelAndView("redirect:/login"); 
+			System.out.println("redirect to login method");
 				return mv;}
 		}
 	}

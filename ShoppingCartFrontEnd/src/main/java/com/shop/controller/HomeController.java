@@ -32,11 +32,11 @@ public class HomeController {
 	@Autowired
 	private User user;
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public ModelAndView home() {
 		
 		log.debug("Starting of home Method");
-		ModelAndView mv=new ModelAndView("redirect:/checkCookie");
+		ModelAndView mv=new ModelAndView("home");
 		//httpSession.setAttribute("welcomeMessage","Welcome");
 		List<Category> categories=categoryDAO.categorylist();
 		httpSession.setAttribute("categories",categories);
