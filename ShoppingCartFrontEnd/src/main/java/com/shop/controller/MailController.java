@@ -14,7 +14,7 @@ import com.shop.mail.EmailSend;
 @Controller
 public class MailController {
 
-    @Autowired
+    @Autowired(required=false)
     private HttpSession httpSession;
     
     private String from="167gauri.g@gmail.com";

@@ -27,7 +27,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@Autowired
+	@Autowired(required=false)
 	HttpSession httpSession;
 	
 	@GetMapping("/category/get/")

@@ -1,5 +1,6 @@
 package com.shop.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,7 +20,7 @@ import com.shop.domain.User;
 @Controller
 public class CartController {
 	
-	@Autowired
+	@Autowired(required=false)
 	private HttpSession httpSession;
 
 	@Autowired
@@ -33,6 +34,8 @@ public class CartController {
 	
 	@Autowired
 	private User user;
+	
+	private static String rootPath = "resources/images";
 	
 	@PostMapping("product/cart/add")
 	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam String quantity)
@@ -76,6 +79,7 @@ public class CartController {
 		}
 		mv.addObject("isUserClickedMyCart",true);
 		List<Cart> cartList=cartDAO.cartlist(loggedInUserId);
+		mv.addObject("selectedProductImage",rootPath+File.separator+cart.getProductId()+".PNG");
 		mv.addObject("cartList",cartList);
 		return mv;
 	}

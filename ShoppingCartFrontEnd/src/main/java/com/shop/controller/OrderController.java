@@ -23,7 +23,7 @@ public class OrderController {
 	@Autowired
 	private Order order;
 	
-	@Autowired
+	@Autowired(required=false)
 	private HttpSession httpSession;
 	
 	

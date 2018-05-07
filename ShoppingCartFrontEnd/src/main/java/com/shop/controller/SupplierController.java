@@ -27,7 +27,7 @@ public class SupplierController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	@Autowired
+	@Autowired(required=false)
 	HttpSession httpSession;
 	
 	@GetMapping("/supplier/get/")

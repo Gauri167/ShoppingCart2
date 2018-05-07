@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.dao.CartDAO;
+import com.shop.dao.CategoryDAO;
 import com.shop.dao.UserDAO;
 import com.shop.domain.Cart;
+import com.shop.domain.Category;
 import com.shop.domain.User;
 
 @Controller
@@ -35,7 +38,7 @@ public class UserController {
        @Autowired
        private CartDAO cartDAO;
        
-       @Autowired
+       @Autowired(required=false)
       HttpSession httpSession;
        
      /*  @RequestMapping(value="/newlogin")
@@ -53,12 +56,19 @@ public class UserController {
    	}
        */
        @RequestMapping(value="/validate",method=RequestMethod.POST)
-       public ModelAndView validate(@RequestParam(value="uname",required=false) String emailId,@RequestParam(value="pswd",required=false) String password,@RequestParam(value="keepLoggedIn",required=false) boolean keepLoggedIn) 
+       public ModelAndView validate(@RequestParam(value="emailId",required=false) String emailId,@RequestParam(value="password",required=false) String password,@RequestParam(value="loggedIn",required=false) boolean keepLoggedIn,
+    		                         HttpSession httpSession) 
        {
     	   log.debug("Starting of validate Method");
-    	   user=userDAO.get(emailId);
+    	   System.out.println("welcome to validate method");
+    	   System.out.println(emailId);
+    	   System.out.println(password);
+    	  /* user=userDAO.get(emailId);
+    	   System.out.println(userDAO.get(emailId));*/
     	   ModelAndView mv=new ModelAndView("home");
-    	   user.setEmailId(emailId);
+    	   
+    	   
+		/*user.setEmailId(emailId);
 		   user.setName(user.getName());
 		   user.setMobile(user.getMobile());
 		   user.setRegisterDate(user.getRegisterDate());
@@ -68,8 +78,20 @@ public class UserController {
     	   if(keepLoggedIn==true)
     	   user.setLoggedIn(true);
     	   else user.setLoggedIn(false);
-    	   userDAO.update(user);
+    	   userDAO.update(user);*/
+    	   if(userDAO==null) {
+    		   @SuppressWarnings("resource")
+			AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+    			context.scan("com.shop");
+    			context.refresh();
+    			userDAO=(UserDAO)context.getBean("userDAO");
+    			cartDAO=(CartDAO)context.getBean("cartDAO");
+    			
+    	   }
+    	  /* List<Category> categories=categoryDAO.categorylist();
+   		httpSession.setAttribute("categories",categories);*/
     	   user=userDAO.validate(emailId, password);
+    	   System.out.println(userDAO.validate(emailId, password));
     	   if(user==null)
     		   mv.addObject("errorMessage","Invalid Id or Password");
     	   else {

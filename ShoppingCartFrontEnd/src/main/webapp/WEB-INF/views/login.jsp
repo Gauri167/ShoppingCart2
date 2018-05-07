@@ -70,14 +70,14 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Email Id</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required value="${mail}">
+    <input type="text" placeholder="Enter Username" name="emailId" required value="${mail}">
 
     <label for="pswd"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="pswd" required value="${pswd}">
+    <input type="password" placeholder="Enter Password" name="password" required value="${pswd}">
         
     <button type="submit">Login</button>
     <label>
-      <input type="checkbox" name="keepLoggedIn"> Keep me Logged-In
+      <input type="checkbox" name="loggedIn"> Keep me Logged-In
     </label>
   </div>
 

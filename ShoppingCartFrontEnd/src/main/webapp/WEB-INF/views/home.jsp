@@ -8,14 +8,20 @@
 <spring:url value="/assests/js" var="js"/> --%>
 
 <!DOCTYPE html>
-<html>
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <%--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script type="text/javascript" src="<c:url value="/resources/js/myscript.js"/>"></script> --%>
+  
 </head>
-<body>
+<body ng-app="myApp">
 
 <!-- HEADER -->
 <header>
@@ -100,27 +106,20 @@ ${logoutMessage}<br>
 
 <!-- FOOTER -->
 <footer>
-{{2<3}}
+
 <jsp:include page="newfooter.jsp"></jsp:include>
 
 </footer>
 
  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
- <div ng-app="myApp">
- <script
+ 
+  <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
+ 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
-angular.module('myApp',['ngCookies'])
-controller('checkCookies',['$cookies',function($cookies){
-	var mcookie=$cookies.get("emailId");
-	var pcookie=$cookies.get("password");
-}])
-$http.post('/vaildate',mcookie,pcookie,config).then(successCallback,errorCallback);
-</script>
-</div>
+  
 <%-- <script src="${js}/jquery.js"></script>
   <script src="${js}/bootstrap.min.js"></script>
   <script src="${js}/popper.min.js"></script> --%>

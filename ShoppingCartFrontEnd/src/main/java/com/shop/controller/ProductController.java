@@ -38,12 +38,12 @@ public class ProductController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	@Autowired
+	@Autowired(required=false)
 	HttpSession httpSession;
 	
-private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
+private static String rootPath = "resources/images";//catalina home gives the location of tomcat directory
 	
-	private static final String imageDirectory="ShoppingCartImages";
+	//private static final String imageDirectory="ShoppingCartImages";
 	
 	@GetMapping("/product/get")
 	public ModelAndView getProduct(@RequestParam String id)
@@ -53,7 +53,7 @@ private static String rootPath = System.getProperty("catalina.home");//catalina 
 		product=productDAO.get(id);
 		mv.addObject("selectedProduct",product);
 		mv.addObject("isUserSelectedProduct",true);
-		httpSession.setAttribute("selectedProductImage",rootPath+File.separator+imageDirectory+File.separator+id+".PNG");
+		mv.addObject("selectedProductImage",rootPath+File.separator+id+".PNG");
 		log.debug("ending of getProduct Method");
 		return mv;
 	}

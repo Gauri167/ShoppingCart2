@@ -26,7 +26,7 @@ public class AdminController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@Autowired
+	@Autowired(required=false)
 	HttpSession httpSession;
 	
 	@Autowired

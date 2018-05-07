@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 
 <form action="cart/add" method="post">
 
-<img alt="" src="${selectedProductImage}"><br>
+<img alt="" src="<c:url value="/resources/images/${selectedProduct.id}.PNG"/>"><br>
 
 Name:<input type="text" name="productName" value="${selectedProduct.name}"><br>
 Price:<input type="text" name="price" value="${selectedProduct.price}"><br>

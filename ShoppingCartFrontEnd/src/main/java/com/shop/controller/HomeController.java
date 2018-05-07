@@ -23,7 +23,7 @@ public class HomeController {
 
 	private static final Logger log=LoggerFactory.getLogger(HomeController.class);
 	
-	@Autowired
+	@Autowired(required=false)
 	HttpSession httpSession;
 	
 	@Autowired
@@ -33,10 +33,10 @@ public class HomeController {
 	private User user;
 
 	@GetMapping("/")
-	public ModelAndView home() {
+	public ModelAndView home(HttpSession httpSession) {
 		
 		log.debug("Starting of home Method");
-		ModelAndView mv=new ModelAndView("home");
+		ModelAndView mv=new ModelAndView("redirect:/checkCookie");
 		//httpSession.setAttribute("welcomeMessage","Welcome");
 		List<Category> categories=categoryDAO.categorylist();
 		httpSession.setAttribute("categories",categories);

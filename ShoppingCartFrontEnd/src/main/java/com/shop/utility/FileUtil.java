@@ -12,13 +12,13 @@ public class FileUtil {
 	
 	
 	
-	private static String rootPath = System.getProperty("catalina.home");//catalina home gives the location of tomcat directory
+	private static String rootPath = "C:\\Users\\Gauri Gaur\\Documents\\GitHub\\ShoppingCart2\\ShoppingCartFrontEnd\\src\\main\\webapp\\assests\\images";//catalina home gives the location of tomcat directory
 	
-	private static final String imageDirectory="ShoppingCartImages";
+	//private static final String imageDirectory="ShoppingCartImages";
 	
 	public static boolean fileCopyNIO(MultipartFile file,String fileName)
 	{
-		File dest=new File(rootPath+File.separator+imageDirectory+File.separator+fileName);
+		File dest=new File(rootPath+File.separator+fileName);
 		
 		try
 		{

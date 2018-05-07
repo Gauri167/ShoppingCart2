@@ -17,7 +17,7 @@ import com.shop.domain.User;
 @Controller
 public class CookieController {
 	
-	@Autowired
+	@Autowired(required=false)
 	private HttpSession httpSession;
 	
 	@Autowired
@@ -106,11 +106,15 @@ public class CookieController {
 				mv.addObject("pswd",password);
 				mv.addObject("keepLoggedIn",loggedIn);
                 System.out.println("redirect to validate method");
-				return mv;
+                System.out.println(emailId);
+                System.out.println(password);
+                System.out.println(loggedIn);
+				mv=new UserController().validate(emailId, password, loggedIn,httpSession);
                 }
 			else {mv=new ModelAndView("redirect:/login"); 
 			System.out.println("redirect to login method");
 				return mv;}
+			return mv;
 		}
 	}
 }
