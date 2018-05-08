@@ -38,7 +38,7 @@ public class CartController {
 	private static String rootPath = "resources/images";
 	
 	@PostMapping("product/cart/add")
-	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam String quantity)
+	public ModelAndView addToCart(@RequestParam String productName,@RequestParam int price,@RequestParam String quantity,@RequestParam String productId)
 	{
 		ModelAndView mv=new ModelAndView("home");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
@@ -51,6 +51,9 @@ public class CartController {
 		cart.setPrice(price);
 		cart.setQuantity(Integer.parseInt(quantity));
 		cart.setProductName(productName);
+		cart.setProductId(productId);
+		
+		System.out.println(productId);
 		
 		if(cartDAO.save(cart))
 		{

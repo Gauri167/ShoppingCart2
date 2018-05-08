@@ -31,11 +31,12 @@
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 			aria-expanded="false">${category.name}<span class="caret"></span></a>
+			<div class="dropdown-menu">
 			 <j:forEach var="product" items="${category.products}">
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/product/get?id=${product.id}">${product.name}</a>
-				</div>
-			</j:forEach></li>
+				
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/product/get?id=${product.id}">${product.name}</a><br/>
+				
+			</j:forEach></div></li>
 	</j:forEach>
 </ul>
 

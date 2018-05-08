@@ -8,6 +8,8 @@ public interface CartDAO {
 
 	// to save new cart
 		public boolean save(Cart cart);
+		//to update cart
+		public boolean update(Cart cart);
 		//to delete cart
 		public boolean delete(int id);
 		//to get cart

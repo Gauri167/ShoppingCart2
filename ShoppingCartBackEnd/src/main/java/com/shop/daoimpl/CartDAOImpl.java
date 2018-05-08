@@ -32,7 +32,7 @@ public class CartDAOImpl implements CartDAO{
 		log.debug("Starting of SAVE Method");
 		
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(cart);
+			sessionFactory.getCurrentSession().save(cart);
 			log.debug("Ending of SAVE Method");
 			return true;
 		} 
@@ -85,6 +85,20 @@ public class CartDAOImpl implements CartDAO{
 		Session session=sessionFactory.openSession();
 		log.debug("ending of cartList Method");
 		return session.createCriteria(Cart.class).add(Restrictions.eq("emailId",emailId)).list();
+	}
+
+	@Override
+	public boolean update(Cart cart) {
+		log.debug("Starting of update cart Method");
+		try {
+			sessionFactory.getCurrentSession().update(cart);
+			log.debug("ending of update cart Method");
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			log.error("error occured in update method"+e.getMessage());
+			return false;
+		}
 	}
 
 	

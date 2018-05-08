@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.dao.CartDAO;
-import com.shop.dao.CategoryDAO;
 import com.shop.dao.UserDAO;
 import com.shop.domain.Cart;
-import com.shop.domain.Category;
 import com.shop.domain.User;
 
 @Controller

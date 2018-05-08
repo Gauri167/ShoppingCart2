@@ -13,11 +13,12 @@
 <form action="cart/add" method="post">
 
 <img alt="" src="<c:url value="/resources/images/${selectedProduct.id}.PNG"/>"><br>
-
+<input type="hidden" name="productId" value="${selectedProduct.id}">
 Name:<input type="text" name="productName" value="${selectedProduct.name}"><br>
 Price:<input type="text" name="price" value="${selectedProduct.price}"><br>
 Quantity:<input type="text" name="quantity" required><br>
 Description:${selectedProduct.description}<br>
+
 <input type="submit" value="Add to Cart">
 
 </form>
