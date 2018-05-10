@@ -27,7 +27,6 @@ public class OrderController {
 	private HttpSession httpSession;
 	
 	
-	//
 	@PostMapping("/confirmOrder")
 	public ModelAndView confirmOrder(@RequestParam String paymentMode,@RequestParam String name,@RequestParam String mobile,@RequestParam String address,
 			                         @RequestParam String productName,@RequestParam String price,@RequestParam int quantity)

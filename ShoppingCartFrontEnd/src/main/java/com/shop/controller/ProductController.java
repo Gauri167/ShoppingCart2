@@ -95,7 +95,6 @@ private static String rootPath = "resources/images";//catalina home gives the lo
 		log.debug("Starting of editProduct Method");
 		ModelAndView mv= new ModelAndView("redirect:/manage_product");
 		product=productDAO.get(id);
-		//mv.addObject("editProduct",true);
 		httpSession.setAttribute("selectedProduct",product);
 		log.debug("ending of editProduct Method");
 		return mv;

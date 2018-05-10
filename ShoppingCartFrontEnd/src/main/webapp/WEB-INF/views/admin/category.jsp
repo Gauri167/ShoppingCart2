@@ -1,15 +1,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-this is category page
-<!-- create 3 text fields  -->
+
 ${categorySuccessMessage} 
 ${categoryErrorMessage}
-<%-- <form:form modelAttribute="category" action="saveCategory" method="post">
-<form:input path="id" placeholder="Id"/>
-<form:input path="name" placeholder="Name"/>
-<form:input path="description" placeholder="Description"/>
-<input type="submit" value="Save Category"/>
-</form:form> --%>
 
 <form action="category/save/" method="post">
 	<table>

@@ -13,9 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.shop.dao.ProductDAO;
-import com.shop.domain.Category;
 import com.shop.domain.Product;
-import com.shop.domain.Supplier;
 @Transactional
 @Repository("productDAO")
 public class ProductDAOImpl implements ProductDAO{
@@ -84,21 +82,5 @@ public class ProductDAOImpl implements ProductDAO{
 		log.debug("Ending of ProductList Method");
 		return session.createQuery("from Product").list();
 	}
-
-	public Product getCategory(Category category) {
-		
-		// slt missed 
-		// to be completed
-		return null;
-	}
-
-	public Product getSupplier(Supplier supplier) {
-		
-		//slt missed
-		//to be completed
-		return null;
-	}
-
 	
-
 }

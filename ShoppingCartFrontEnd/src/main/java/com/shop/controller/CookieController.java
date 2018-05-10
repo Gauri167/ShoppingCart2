@@ -30,12 +30,7 @@ public class CookieController {
 	public ModelAndView creataCookie(HttpServletResponse response)
 	{
 		ModelAndView mv=new ModelAndView("home");
-		
-		//increment hit counter
-		//hitCounter++;
-		
-		//create cookie and set it in response
-		//Cookie cookie=new Cookie("hitCounter",hitCounter.toString());
+
 		String emailId=(String) httpSession.getAttribute("emailId");
 		String password=(String) httpSession.getAttribute("password");
 		Cookie mailCookie=new Cookie("emailId",emailId);
@@ -48,7 +43,6 @@ public class CookieController {
 		      mailCookie.setValue(emailId);
 		       pswdCookie.setValue(password);
 		       
-		//response.addCookie(cookie);
 		response.addCookie(mailCookie);
 		response.addCookie(pswdCookie);
 		 
@@ -61,8 +55,6 @@ public class CookieController {
 			mv.addObject("pswd",pswd);
 			System.out.println(mail);
 			System.out.println(pswd);
-			/*mv.addObject("emailId",emailId);
-			mv.addObject("password",password);*/
 		}
 		return mv;
 	}

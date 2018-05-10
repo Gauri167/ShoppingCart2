@@ -2,9 +2,7 @@ package com.shop.dao;
 
 import java.util.List;
 
-import com.shop.domain.Category;
 import com.shop.domain.Product;
-import com.shop.domain.Supplier;
 
 public interface ProductDAO {
 
@@ -16,8 +14,4 @@ public interface ProductDAO {
 	public Product get(String id);
 	// to get all products
 	public List<Product> productlist();
-	// to get category of Product
-	public Product getCategory(Category category);
-	//to get Supplier of product
-	public Product getSupplier(Supplier supplier);
 }

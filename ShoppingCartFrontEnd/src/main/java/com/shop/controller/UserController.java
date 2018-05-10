@@ -39,20 +39,6 @@ public class UserController {
        @Autowired(required=false)
       HttpSession httpSession;
        
-     /*  @RequestMapping(value="/newlogin")
-   	public ModelAndView login(@RequestParam(name="error", required = false)	String error,
-   			@RequestParam(name="logout", required = false) String logout) {
-   		ModelAndView mv= new ModelAndView("redirect:/login");
-   		mv.addObject("title", "Login");
-   		if(error!=null) {
-   			mv.addObject("message", "Username and Password is invalid!");
-   		}
-   		if(logout!=null) {
-   			mv.addObject("logout", "You have logged out successfully!");
-   		}
-   		return mv;
-   	}
-       */
        @RequestMapping(value="/validate",method=RequestMethod.POST)
        public ModelAndView validate(@RequestParam(value="emailId",required=false) String emailId,@RequestParam(value="password",required=false) String password,@RequestParam(value="loggedIn",required=false) boolean keepLoggedIn,
     		                         HttpSession httpSession) 
@@ -61,22 +47,9 @@ public class UserController {
     	   System.out.println("welcome to validate method");
     	   System.out.println(emailId);
     	   System.out.println(password);
-    	  /* user=userDAO.get(emailId);
-    	   System.out.println(userDAO.get(emailId));*/
+ 
     	   ModelAndView mv=new ModelAndView("home");
     	   
-    	   
-		/*user.setEmailId(emailId);
-		   user.setName(user.getName());
-		   user.setMobile(user.getMobile());
-		   user.setRegisterDate(user.getRegisterDate());
-		   user.setRole(user.getRole());
-		   user.setRememberMe(user.isRememberMe());
-		   user.setPassword(password);
-    	   if(keepLoggedIn==true)
-    	   user.setLoggedIn(true);
-    	   else user.setLoggedIn(false);
-    	   userDAO.update(user);*/
     	   if(userDAO==null) {
     		   @SuppressWarnings("resource")
 			AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
@@ -86,8 +59,6 @@ public class UserController {
     			cartDAO=(CartDAO)context.getBean("cartDAO");
     			
     	   }
-    	  /* List<Category> categories=categoryDAO.categorylist();
-   		httpSession.setAttribute("categories",categories);*/
     	   user=userDAO.validate(emailId, password);
     	   System.out.println(userDAO.validate(emailId, password));
     	   if(user==null)
@@ -98,9 +69,8 @@ public class UserController {
     		   
     		   System.out.println(httpSession.getAttribute("loggedInUserId"));
     		   httpSession.setAttribute("UserClickedLogin",true);
-    		   //fetch how many products added
-    		   //
     		   List<Cart> carts=cartDAO.cartlist(user.getEmailId());
+    		   //fetch how many products added
     		   httpSession.setAttribute("size",carts.size());
     		   httpSession.setAttribute("carts",carts);
     		   if(user.getRole()=='A')
@@ -117,22 +87,11 @@ public class UserController {
     	   log.debug("Starting of saveUser Method");
     	   ModelAndView  mv=new ModelAndView("redirect:/createCookie");
     	   if(rpassword.equals(password))
-    	   {
-    		  /* String ip=(String) httpSession.getAttribute("ip");
-    		   String mac=(String) httpSession.getAttribute("macAdd");
-    		   System.out.println(ip);
-    		   System.out.println(mac);*/
-    		  /* if(ip==null && mac==null)
-    		   {
-        	   mv=new ModelAndView("redirect:/generateIp");
-    		   }*/
-    		   
+    	   {   
     		   user.setEmailId(emailId);
     		   user.setPassword(rpassword);
     		   user.setName(name);
     		   user.setMobile(mobile);
-    		   /*user.setIpAddress(ip);
-    		   user.setMacAdress(mac);*/
     		   if(remember==true)
     			   user.setRememberMe(true);
     		   else user.setRememberMe(false);
@@ -145,7 +104,6 @@ public class UserController {
     		   else httpSession.setAttribute("errorMessage","Invalid...Please try again");
     	   }
     	   else mv.addObject("errorMessage","Password Mismatch");
-    	   //mv.addObject("isUserClickedLogin",true);
     	   log.debug("ending of saveUser Method");
     	   return mv;
     	   
@@ -208,8 +166,6 @@ public class UserController {
     		   user.setRegisterDate(user.getRegisterDate());
     		   user.setRole(user.getRole());
     		   user.setRememberMe(user.isRememberMe());
-    		   /*user.setIpAddress(user.getIpAddress());
-    		   user.setMacAdress(user.getMacAdress());*/
     		   user.setPassword(password);
     		   if(userDAO.update(user)==true)
     		   {

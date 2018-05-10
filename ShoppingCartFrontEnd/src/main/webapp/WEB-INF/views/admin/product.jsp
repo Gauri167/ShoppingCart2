@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-this is product page
  ${productSuccessMessage} 
  ${productErrorMessage}
  ${uploadMessage}
@@ -40,13 +39,6 @@ this is product page
 			<input type="text" name='categoryId'
 				value="${selectedProduct.categoryId}">
 			
-			<%--  <select name="categoryId">
-			
-			<c:forEach var="category" items="categories">
-			<option value="${category.id}">${category.name}</option>
-			</c:forEach>
-			
-			</select> --%>
 			</td>
 		</tr>
 		
@@ -57,13 +49,6 @@ this is product page
 			<input type="text" name='supplierId'
 				value="${selectedProduct.supplierId}">
 			
-			<%-- <select name="supplierId">
-			
-			<c:forEach var="supplier" items="suppliers">
-			<option value="${supplier.id}">${supplier.name}</option>
-			</c:forEach>
-			
-			</select> --%>
 			</td>
 		</tr>
 		

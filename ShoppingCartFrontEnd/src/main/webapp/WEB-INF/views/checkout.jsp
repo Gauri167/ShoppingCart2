@@ -9,17 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <form:form action="confirmOrder" method="post" modelAttribute="${cartList}">
-<c:forEach var="cart" items="${cartList}">
-<tr>
-<td><img alt="${productName}" src="${selectedProductImage}"></td>
-<td><form:input path="productName"  value="${cart.productName}" disabled="disabled"/></td>
-<td><form:input path="price" value="${cart.price}" disabled="disabled"/></td>
-<td><form:input path="quantity" value="${cart.quantity}" disabled="disabled"/></td>
-</tr>
-</c:forEach> 
-
-</form:form>--%>
 <form action="confirmOrder" method="post">
 <table>
 

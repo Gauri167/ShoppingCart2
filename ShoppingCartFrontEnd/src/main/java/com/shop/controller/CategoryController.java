@@ -70,9 +70,6 @@ public class CategoryController {
 		category=categoryDAO.get(id);
 		mv.addObject("editCategories",true);
 		httpSession.setAttribute("selectedCategory",category);
-		/*if(categoryDAO.update(category)==true)
-			mv.addObject("categorySuccessMessage","Category Update");
-		else mv.addObject("categoryErrorMessage","Could not update Category try again");*/
 		log.debug("ending of editCategory Method");
 		return mv;
 	}
