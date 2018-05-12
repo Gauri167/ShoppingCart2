@@ -140,7 +140,7 @@ public class UserController {
        }
        
        @GetMapping("/checkOTP")
-       public ModelAndView check(@RequestParam long otp)
+       public ModelAndView check(@RequestParam int otp)
        {
     	   ModelAndView mv=new ModelAndView("home");
     	   int n=(int) httpSession.getAttribute("otp");
@@ -160,9 +160,15 @@ public class UserController {
     	   if(password.equals(cnfrmpswd))
     	   {
     		   String email=(String) httpSession.getAttribute("mailId");
+    		   user=userDAO.get(email);
     		   user.setEmailId(email);
     		   user.setRememberMe(user.isRememberMe());
     		   user.setPassword(password);
+    		   user.setLoggedIn(user.isLoggedIn());
+    		   user.setMobile(user.getMobile());
+    		   user.setName(user.getName());
+    		   user.setRegisterDate(user.getRegisterDate());
+    		   user.setRole(user.getRole());
     		   if(userDAO.update(user)==true)
     		   {
     			   mv.addObject("isUserClickedLogin",true);
