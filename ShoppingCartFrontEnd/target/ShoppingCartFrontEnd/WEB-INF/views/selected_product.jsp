@@ -23,8 +23,5 @@ Description:${selectedProduct.description}<br>
 
 </form>
 
-
-<%-- <a href="cart/add?productName=${selectedProduct.name}&price=${selectedProduct.price}&quantity=1">Add To Cart</a>
- --%>
 </body>
 </html>

@@ -30,9 +30,9 @@ ${supplierErrorMessage}
 <!-- display all the suppliers -->
 
 <div>
-	<table border="5" bgcolor="cyan">
+	<table border="5">
 
-		<tr>
+		<tr bgcolor="cyan">
 
 			<td>Supplier Id</td>
 			<td>Supplier Name</td>
@@ -43,7 +43,7 @@ ${supplierErrorMessage}
 
 		<c:forEach var="supplier" items="${suppliers}">
 
-			<tr>
+			<tr bgcolor="cyan">
 
 				<td>${supplier.id}</td>
 				<td>${supplier.name}</td>

@@ -11,7 +11,8 @@
 <body>
 <form action="confirmOrder" method="post">
 <table>
-
+<tr> <td><input type="hidden" name="productId" value="${cart.productId}"></td></tr>
+<tr> <td><input type="hidden" name="cartId" value="${cart.id}"></td></tr>
 <tr>
 
 <td></td>

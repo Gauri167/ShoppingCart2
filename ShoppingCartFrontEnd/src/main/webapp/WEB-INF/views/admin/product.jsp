@@ -66,9 +66,9 @@
 <!-- display all the products -->
 
 <div>
-	<table border="5px" bgcolor="cyan">
+	<table border="5px">
 
-		<tr>
+		<tr bgcolor="cyan">
 
 			<td>Product Id</td>
 			<td>Product Name</td>
@@ -82,7 +82,7 @@
 
 		<c:forEach var="product" items="${products}">
 
-			<tr>
+			<tr bgcolor="cyan">
 
 				<td>${product.id}</td>
 				<td>${product.name}</td>

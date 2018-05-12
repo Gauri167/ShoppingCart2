@@ -31,9 +31,9 @@ ${categoryErrorMessage}
 <!-- display all the categories -->
 
 <div>
-	<table border="5" bgcolor="cyan">
+	<table border="5px">
 
-		<tr>
+		<tr bgcolor="cyan">
 
 			<td>Category Id</td>
 			<td>Category Name</td>
@@ -44,7 +44,7 @@ ${categoryErrorMessage}
 
 		<c:forEach var="category" items="${categories}">
 
-			<tr>
+			<tr bgcolor="cyan">
 
 				<td>${category.id}</td>
 				<td>${category.name}</td>

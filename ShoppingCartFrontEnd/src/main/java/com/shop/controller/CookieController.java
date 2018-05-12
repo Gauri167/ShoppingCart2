@@ -103,9 +103,6 @@ public class CookieController {
                 System.out.println(loggedIn);
 				mv=new UserController().validate(emailId, password, loggedIn,httpSession);
                 }
-			else {mv=new ModelAndView("redirect:/login"); 
-			System.out.println("redirect to login method");
-				return mv;}
 			return mv;
 		}
 	}

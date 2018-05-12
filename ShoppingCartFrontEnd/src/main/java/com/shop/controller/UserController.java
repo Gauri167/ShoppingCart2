@@ -143,7 +143,7 @@ public class UserController {
        public ModelAndView check(@RequestParam long otp)
        {
     	   ModelAndView mv=new ModelAndView("home");
-    	   long n=(long) httpSession.getAttribute("otp");
+    	   int n=(int) httpSession.getAttribute("otp");
     	   if(n==otp)
     	   {
     		   mv.addObject("userClickedEnternewPasswrd",true);
@@ -161,10 +161,6 @@ public class UserController {
     	   {
     		   String email=(String) httpSession.getAttribute("mailId");
     		   user.setEmailId(email);
-    		   user.setName(user.getName());
-    		   user.setMobile(user.getMobile());
-    		   user.setRegisterDate(user.getRegisterDate());
-    		   user.setRole(user.getRole());
     		   user.setRememberMe(user.isRememberMe());
     		   user.setPassword(password);
     		   if(userDAO.update(user)==true)

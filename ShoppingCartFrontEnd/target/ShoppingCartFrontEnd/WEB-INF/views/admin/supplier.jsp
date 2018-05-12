@@ -1,7 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-This is supplier Page
-
 ${supplierSuccessMessage}
 ${supplierErrorMessage}
 

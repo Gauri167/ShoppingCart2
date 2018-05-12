@@ -26,8 +26,8 @@ public class MailController {
 		ModelAndView mv=new ModelAndView("home");
 		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
 		Order order=(Order)httpSession.getAttribute("orderDetails");
-		String description="Order no:-"+order.getId()+"\n<span style=\"color:red\">Product Name</span>:-"+order.getProductName()+"\nProduct Price:-"+order.getProductPrice()+
-				            "\nPayment Mode:-"+order.getPaymentMode()+"\n Amount:-"+order.getAmount();
+		String description="Your Order is Successfully placed,the details are:-"+"\nOrder no:-"+order.getId()+order.getProductName()+"\nProduct Price:-"+order.getProductPrice()+
+				            "\nPayment Mode:-"+order.getPaymentMode()+"\n Amount:-"+order.getAmount()+"\nThankyou for Shopping";
 		EmailSend.sendMail(loggedInUserId,from,"Order Details", description);
 		mv.addObject("successMessage","MailSend");
 		mv.addObject("thankyouPage",true);
@@ -39,12 +39,26 @@ public class MailController {
 	{
 		ModelAndView mv=new ModelAndView("home");
 		Random rnd=new Random();
-		long n=rnd.nextLong();
+		int n=rnd.nextInt(100000)+100000;
+		System.out.println(n);
 		httpSession.setAttribute("otp",n);
 		String to=(String) httpSession.getAttribute("mailId");
 		String description="Enter this code to create new password:"+n;
 		EmailSend.sendMail(to, from,"OTP", description);
 		mv.addObject("isUserEntersOTP",true);
+		return mv;
+	}
+	
+	@RequestMapping("/cancelOrderMail")
+	public ModelAndView cancelMail()
+	{
+		ModelAndView mv=new ModelAndView("home");
+		String loggedInUserId=(String) httpSession.getAttribute("loggedInUserId");
+		Order order=(Order)httpSession.getAttribute("orderDetails");
+		String description="Your Order is Cancelled,the details are:-"+"\nOrder no:-"+order.getId()+order.getProductName()+"\nProduct Price:-"+order.getProductPrice()+
+				            "\nPayment Mode:-"+order.getPaymentMode()+"\n Amount:-"+order.getAmount()+"\nThankyou for Shopping";
+		EmailSend.sendMail(loggedInUserId,from,"Order Cancellation", description);
+		mv.addObject("successMessage","MailSend");
 		return mv;
 	}
 }

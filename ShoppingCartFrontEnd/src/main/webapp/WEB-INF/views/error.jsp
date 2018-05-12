@@ -1,5 +1,10 @@
+<head>
+ <script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet" id="bootstrap-css">
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"/></script>
+</head>
 
-
+<body>
 <jsp:include page="newHeader.jsp"></jsp:include>
 		
 		<div class="content">
@@ -35,3 +40,4 @@
 
 		
 		<jsp:include page="newfooter.jsp"></jsp:include>
+</body>
