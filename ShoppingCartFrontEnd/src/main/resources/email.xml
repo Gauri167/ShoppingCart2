@@ -9,7 +9,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 <property name="host" value="smtp.gmail.com"/>
 <property name="port" value="587"/>
 <property name="username" value="167gauri.g@gmail.com"/>
-<property name="password" value="g@urig@ur1995"/>
+<property name="password" value=""/>
 
 <property name="javaMailProperties">
 <props>
