@@ -35,7 +35,7 @@ ${logoutMessage}<br>
 </c:if>
 
 <c:if test="${isUserClickedMyCart==true}">
-<jsp:include page="cart.jsp"></jsp:include>0
+<jsp:include page="cart.jsp"></jsp:include>
 </c:if>
 
 <c:if test="${isUserClickedLogin==true}">

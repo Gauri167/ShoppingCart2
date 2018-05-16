@@ -12,9 +12,9 @@ ${categorySuccessMessage}
 ${categoryErrorMessage}
 
 <h2>
-<a href="manage_category">Manage Categories</a>
-<a href="manage_supplier"> Manage Suppliers</a>
-<a href="manage_product">Manage Products</a>
+<a href="${pageContext.request.contextPath}/manage_category">Manage Categories</a>
+<a href="${pageContext.request.contextPath}/manage_supplier"> Manage Suppliers</a>
+<a href="${pageContext.request.contextPath}/manage_product">Manage Products</a>
 </h2>
 
 <br>

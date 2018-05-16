@@ -11,7 +11,7 @@ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 <intercept-url pattern="/manage/**" access="hasRole(A)" />
 <intercept-url pattern="/myCart/**"
 			access="hasRole(C)" />
-<form-login username-parameter="uname" password-parameter="pswd"
+<form-login username-parameter="emailId" password-parameter="password"
             login-page="/login" default-target-url="/" login-processing-url="/login" authentication-failure-url="/login" 
             authentication-success-forward-url="/"
 			 />

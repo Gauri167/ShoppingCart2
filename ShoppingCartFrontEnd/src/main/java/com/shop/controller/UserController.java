@@ -75,6 +75,11 @@ public class UserController {
     		   httpSession.setAttribute("carts",carts);
     		   if(user.getRole()=='A')
     			   httpSession.setAttribute("isAdmin",true);
+    		   if(keepLoggedIn==true)
+    		   {
+    			  user.setLoggedIn(true);
+    		      userDAO.update(user);
+    		   }
     	   }
     	   log.debug("ending of validate Method");
     	   return mv;

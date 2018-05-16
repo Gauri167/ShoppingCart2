@@ -34,10 +34,10 @@ public class CookieController {
 		String emailId=(String) httpSession.getAttribute("emailId");
 		String password=(String) httpSession.getAttribute("password");
 		Cookie mailCookie=new Cookie("emailId",emailId);
-		mailCookie.setMaxAge(60*60*24*10);
+		mailCookie.setMaxAge(60*60*24*30);
 		System.out.println(mailCookie.getMaxAge());
 		Cookie pswdCookie=new Cookie("password", password);
-		pswdCookie.setMaxAge(60*60*24*10);
+		pswdCookie.setMaxAge(60*60*24*30);
 		System.out.println(pswdCookie.getMaxAge());
 		boolean remember=(boolean) httpSession.getAttribute("rememberMe");
 		      mailCookie.setValue(emailId);
